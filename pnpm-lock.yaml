@@ -27,7 +27,6 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       react-refresh: ^0.14.0
-      terser-webpack-plugin: ^5.3.6
       tsconfig: workspace:*
       typescript: ^4.5.3
       webpack: ^5.74.0
@@ -48,7 +47,6 @@ importers:
       eslint: 8.23.1
       html-webpack-plugin: 5.5.0_webpack@5.74.0
       react-refresh: 0.14.0
-      terser-webpack-plugin: 5.3.6_webpack@5.74.0
       tsconfig: link:../../configs/ts
       typescript: 4.8.3
       webpack: 5.74.0_webpack-cli@4.10.0
@@ -92,6 +90,12 @@ importers:
       typescript: 4.8.3
 
   configs/ts:
+    specifiers:
+      bookshelf-types: workspace:*
+    dependencies:
+      bookshelf-types: link:../type
+
+  configs/type:
     specifiers: {}
 
   packages/ui:
