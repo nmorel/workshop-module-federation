@@ -22,19 +22,25 @@ importers:
       '@types/react': 18.0.20
       '@types/react-dom': ^18.0.6
       babel-loader: ^8.2.5
+      book: workspace:*
       eslint: 8.23.1
       html-webpack-plugin: ^5.5.0
+      list: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
       react-refresh: ^0.14.0
+      react-router-dom: ^6.4.0
       tsconfig: workspace:*
       typescript: ^4.5.3
       webpack: ^5.74.0
       webpack-cli: ^4.10.0
       webpack-dev-server: ^4.11.0
     dependencies:
+      book: link:../../packages/book
+      list: link:../../packages/list
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@babel/core': 7.19.1
       '@babel/preset-env': 7.19.1_@babel+core@7.19.1
@@ -90,23 +96,45 @@ importers:
       typescript: 4.8.3
 
   configs/ts:
-    specifiers:
-      bookshelf-types: workspace:*
-    dependencies:
-      bookshelf-types: link:../type
-
-  configs/type:
     specifiers: {}
 
-  packages/ui:
+  packages/book:
     specifiers:
       '@types/react': ^18.0.20
       '@types/react-dom': ^18.0.6
       eslint: ^8.23.1
       eslint-config-custom: workspace:*
       react: ^18.2.0
+      react-dom: 18.2.0
+      react-router-dom: ^6.4.0
       tsconfig: workspace:*
       typescript: ^4.5.2
+    dependencies:
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@types/react': 18.0.20
+      '@types/react-dom': 18.0.6
+      eslint: 8.23.1
+      eslint-config-custom: link:../../configs/eslint
+      react: 18.2.0
+      tsconfig: link:../../configs/ts
+      typescript: 4.8.3
+
+  packages/list:
+    specifiers:
+      '@types/react': ^18.0.20
+      '@types/react-dom': ^18.0.6
+      eslint: ^8.23.1
+      eslint-config-custom: workspace:*
+      react: ^18.2.0
+      react-dom: 18.2.0
+      react-router-dom: ^6.4.0
+      tsconfig: workspace:*
+      typescript: ^4.5.2
+    dependencies:
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@types/react': 18.0.20
       '@types/react-dom': 18.0.6
@@ -1521,6 +1549,11 @@ packages:
       webpack: 5.74.0_webpack-cli@4.10.0
       webpack-dev-server: 4.11.0_5v66e2inugklgvlh4huuavolfq
     dev: true
+
+  /@remix-run/router/1.0.0:
+    resolution: {integrity: sha512-SCR1cxRSMNKjaVYptCzBApPDqGwa3FGdjVHc+rOToocNPHQdIYLZBfv/3f+KvYuXDkUGVIW9IAzmPNZDRL1I4A==}
+    engines: {node: '>=14'}
+    dev: false
 
   /@types/body-parser/1.19.2:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
@@ -4101,6 +4134,28 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /react-router-dom/6.4.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-4Aw1xmXKeleYYQ3x0Lcl2undHR6yMjXZjd9DKZd53SGOYqirrUThyUb0wwAX5VZAyvSuzjNJmZlJ3rR9+/vzqg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.4.0_react@18.2.0
+    dev: false
+
+  /react-router/6.4.0_react@18.2.0:
+    resolution: {integrity: sha512-B+5bEXFlgR1XUdHYR6P94g299SjrfCBMmEDJNcFbpAyRH1j1748yt9NdDhW3++nw1lk3zQJ6aOO66zUx3KlTZg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.0.0
+      react: 18.2.0
+    dev: false
 
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}

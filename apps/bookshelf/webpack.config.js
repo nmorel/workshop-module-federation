@@ -24,6 +24,7 @@ module.exports = {
   devServer: {
     liveReload: !isFastRefreshEnabled,
     hot: isFastRefreshEnabled,
+    historyApiFallback: true,
     port: 3000,
   },
 
