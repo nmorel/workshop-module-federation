@@ -13,4 +13,19 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'prettier/prettier': ['error', require('prettier-config-custom')],
   },
+  overrides: [
+    {
+      files: ['*.js', '*.cjs'],
+      extends: ['plugin:node/recommended'],
+      parserOptions: {
+        allowImportExportEverywhere: true,
+        ecmaVersion: 2021,
+        sourceType: 'module',
+      },
+      rules: {
+        'node/no-unpublished-require': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
 }
