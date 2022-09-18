@@ -4,7 +4,8 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "tscheck": "tsc --noEmit"
   },
   "devDependencies": {
     "eslint": "^8.23.1",

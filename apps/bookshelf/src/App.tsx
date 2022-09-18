@@ -1,5 +1,5 @@
 import {Book} from 'book'
-import {List} from 'list'
+import {List} from 'list/src/List'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 export function App() {
