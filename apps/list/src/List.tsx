@@ -13,3 +13,4 @@ export function List() {
     </ul>
   )
 }
+export default List

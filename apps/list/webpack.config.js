@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const path = require('node:path')
+const {ModuleFederationPlugin} = require('webpack').container
 
 const isProd = process.env.NODE_ENV === 'production'
 const isFastRefreshEnabled = process.env.FAST_REFRESH === 'true'
@@ -59,6 +60,28 @@ module.exports = {
   },
 
   plugins: [
+    new ModuleFederationPlugin({
+      name: 'list',
+      exposes: {
+        './List': './src/List',
+      },
+      shared: {
+        'react': {
+          requiredVersion: false,
+          singleton: true,
+          version: '0',
+        },
+        'react-dom': {
+          requiredVersion: false,
+          singleton: true,
+          version: '0',
+        },
+        'react-router-dom': {
+          singleton: true,
+          version: '0',
+        },
+      },
+    }),
     new HtmlWebpackPlugin({
       templateContent: () => `
         <!DOCTYPE html>
