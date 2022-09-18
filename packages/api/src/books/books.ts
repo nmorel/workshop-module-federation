@@ -4,7 +4,10 @@ export default {
   getAll(): Bookshelf.Book[] {
     return books
   },
-  get(id: string): Bookshelf.Book {
-    return books.find((book) => id === book.id)
+  get(id: string): Bookshelf.Book | null {
+    return books.find((book) => id === book.id) || null
+  },
+  findBySlug(slug: string): Bookshelf.Book | null {
+    return books.find((book) => slug === book.slug) || null
   },
 }

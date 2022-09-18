@@ -1,11 +1,11 @@
 [
-	{
-		"id": 1,
-		"slug": "around-the-world-in-eighty-days",
-		"title": "Around the World in Eighty Days",
-		"year": 1972,
-		"author": "Jules Verne",
-		"plot": "To be defined",
-		"cover": "https://kbimages1-a.akamaihd.net/b39bd5f3-17fa-4d8c-a406-9c88972172fc/353/569/90/False/around-the-world-in-eighty-days-207.jpg"
-	}
+  {
+    "id": "1",
+    "slug": "around-the-world-in-eighty-days",
+    "title": "Around the World in Eighty Days",
+    "year": 1972,
+    "author": "Jules Verne",
+    "plot": "To be defined",
+    "cover": "https://kbimages1-a.akamaihd.net/b39bd5f3-17fa-4d8c-a406-9c88972172fc/353/569/90/False/around-the-world-in-eighty-days-207.jpg"
+  }
 ]

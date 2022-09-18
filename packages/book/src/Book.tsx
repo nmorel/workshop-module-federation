@@ -1,15 +1,13 @@
-import {useParams} from 'react-router-dom'
+import {Navigate, useParams} from 'react-router-dom'
+import {books} from 'api'
 
 export function Book() {
   const {slug} = useParams()
-  // TODO react-query and call api
-  const book = {
-    slug,
-    title: slug
-      ?.split('-')
-      .map((word) => word.substring(0, 1).toUpperCase() + word.substring(1))
-      .join(' '),
+  const book = slug && books.findBySlug(slug)
+  if (!book) {
+    return <Navigate to="/" replace={true} />
   }
+
   return (
     <>
       <h1>{book.title}</h1>
