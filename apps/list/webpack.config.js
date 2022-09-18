@@ -14,7 +14,7 @@ module.exports = {
   output: {
     filename: `[name]-[contenthash].js`,
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: 'auto',
     clean: true,
   },
 
@@ -27,6 +27,11 @@ module.exports = {
     hot: isFastRefreshEnabled,
     historyApiFallback: true,
     port: 3001,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
   },
 
   module: {
@@ -62,24 +67,15 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'list',
+      library: {type: 'var', name: 'list'},
+      filename: 'remoteEntry.js',
       exposes: {
         './List': './src/List',
       },
       shared: {
-        'react': {
-          requiredVersion: false,
-          singleton: true,
-          version: '0',
-        },
-        'react-dom': {
-          requiredVersion: false,
-          singleton: true,
-          version: '0',
-        },
-        'react-router-dom': {
-          singleton: true,
-          version: '0',
-        },
+        'react': {singleton: true, eager: false, requiredVersion: '^18.2.0'},
+        'react-dom': {singleton: true, eager: false, requiredVersion: '^18.2.0'},
+        'react-router-dom': {singleton: true, eager: false, requiredVersion: '^6.4.0'},
       },
     }),
     new HtmlWebpackPlugin({

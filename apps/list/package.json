@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "dev": "FAST_REFRESH=true webpack serve",
+    "dev": "FAST_REFRESH=false webpack serve",
     "lint": "eslint src/",
     "tscheck": "tsc --noEmit"
   },

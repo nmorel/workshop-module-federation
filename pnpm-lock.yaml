@@ -27,7 +27,6 @@ importers:
       book: workspace:*
       eslint: 8.23.1
       html-webpack-plugin: ^5.5.0
-      list: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
       react-refresh: ^0.14.0
@@ -39,7 +38,6 @@ importers:
       webpack-dev-server: ^4.11.0
     dependencies:
       book: link:../../packages/book
-      list: link:../list
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y

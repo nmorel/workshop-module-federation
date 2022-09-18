@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const path = require('node:path')
+const {ModuleFederationPlugin} = require('webpack').container
 
 const isProd = process.env.NODE_ENV === 'production'
 const isFastRefreshEnabled = process.env.FAST_REFRESH === 'true'
@@ -26,6 +27,11 @@ module.exports = {
     hot: isFastRefreshEnabled,
     historyApiFallback: true,
     port: 3000,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
   },
 
   module: {
@@ -59,6 +65,17 @@ module.exports = {
   },
 
   plugins: [
+    new ModuleFederationPlugin({
+      name: 'bookshelf',
+      remotes: {
+        list: `list@//localhost:3001/remoteEntry.js`,
+      },
+      shared: {
+        'react': {singleton: true, eager: false, requiredVersion: '^18.2.0'},
+        'react-dom': {singleton: true, eager: false, requiredVersion: '^18.2.0'},
+        'react-router-dom': {singleton: true, eager: false, requiredVersion: '^6.4.0'},
+      },
+    }),
     new HtmlWebpackPlugin({
       favicon: path.join(__dirname, 'favicon.png'),
       templateContent: () => `
