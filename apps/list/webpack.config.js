@@ -1,10 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const path = require('node:path')
 const {ModuleFederationPlugin} = require('webpack').container
 
 const isProd = process.env.NODE_ENV === 'production'
-const isFastRefreshEnabled = process.env.FAST_REFRESH === 'true'
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
@@ -23,8 +21,8 @@ module.exports = {
   },
 
   devServer: {
-    liveReload: !isFastRefreshEnabled,
-    hot: isFastRefreshEnabled,
+    liveReload: true,
+    hot: false,
     historyApiFallback: true,
     port: 3001,
     headers: {
@@ -51,7 +49,6 @@ module.exports = {
               assumptions: {
                 setPublicClassFields: true,
               },
-              plugins: [...(isFastRefreshEnabled ? ['react-refresh/babel'] : [])],
               presets: [
                 ['@babel/preset-env', {modules: false}],
                 ['@babel/preset-react'],
@@ -103,7 +100,6 @@ module.exports = {
         </html>
     `,
     }),
-    ...(isFastRefreshEnabled ? [new ReactRefreshWebpackPlugin()] : []),
   ],
 
   resolve: {
