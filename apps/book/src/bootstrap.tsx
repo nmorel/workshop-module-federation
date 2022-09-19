@@ -1,6 +1,6 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
-import {List} from './List'
+import {Book} from './Book'
 import {MemoryRouter, Routes, Route} from 'react-router-dom'
 
 const container = document.getElementById('root')
@@ -11,9 +11,9 @@ if (!container) {
 const root = createRoot(container)
 root.render(
   <StrictMode>
-    <MemoryRouter initialEntries={['/']}>
+    <MemoryRouter initialEntries={['/books/around-the-world-in-eighty-days']}>
       <Routes>
-        <Route path="/" element={<List />} />
+        <Route path="/books/:slug" element={<Book />} />
       </Routes>
     </MemoryRouter>
   </StrictMode>

@@ -1,4 +1,4 @@
-import {Book} from 'book'
+import Book from 'book/Book'
 import List from 'list/List'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 

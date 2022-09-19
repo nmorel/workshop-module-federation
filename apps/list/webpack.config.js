@@ -67,15 +67,26 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'list',
-      library: {type: 'var', name: 'list'},
       filename: 'remoteEntry.js',
       exposes: {
         './List': './src/List',
       },
       shared: {
-        'react': {singleton: true, eager: false, requiredVersion: '^18.2.0'},
-        'react-dom': {singleton: true, eager: false, requiredVersion: '^18.2.0'},
-        'react-router-dom': {singleton: true, eager: false, requiredVersion: '^6.4.0'},
+        'react': {
+          singleton: true,
+          eager: false,
+          requiredVersion: '^18.2.0',
+        },
+        'react-dom': {
+          singleton: true,
+          eager: false,
+          requiredVersion: '^18.2.0',
+        },
+        'react-router-dom': {
+          singleton: true,
+          eager: false,
+          requiredVersion: '^6.4.0',
+        },
       },
     }),
     new HtmlWebpackPlugin({

@@ -14,7 +14,7 @@ module.exports = {
   output: {
     filename: `[name]-[contenthash].js`,
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: 'auto',
     clean: true,
   },
 
@@ -26,7 +26,7 @@ module.exports = {
     liveReload: !isFastRefreshEnabled,
     hot: isFastRefreshEnabled,
     historyApiFallback: true,
-    port: 3000,
+    port: 3002,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -66,10 +66,10 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'bookshelf',
-      remotes: {
-        list: `list@//localhost:3001/remoteEntry.js`,
-        book: `book@//localhost:3002/remoteEntry.js`,
+      name: 'book',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './Book': './src/Book',
       },
       shared: {
         'react': {
@@ -90,7 +90,6 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      favicon: path.join(__dirname, 'favicon.png'),
       templateContent: () => `
         <!DOCTYPE html>
         <html>

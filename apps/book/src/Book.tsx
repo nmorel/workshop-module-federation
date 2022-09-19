@@ -14,3 +14,5 @@ export function Book() {
     </>
   )
 }
+
+export default Book
