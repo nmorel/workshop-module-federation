@@ -1,10 +1,20 @@
 import * as React from 'react'
 import {Navigate, useParams} from 'react-router-dom'
 import {books} from 'api'
+import {useQuery} from 'react-query'
 
 export function Book() {
   const {slug} = useParams()
-  const book = slug && books.findBySlug(slug)
+
+  const {data: book} = useQuery(
+    ['book', slug],
+    () => {
+      if (!slug) return
+      return books.getBySlug(slug)
+    },
+    {enabled: !!slug}
+  )
+
   if (!book) {
     return <Navigate to="/" replace={true} />
   }

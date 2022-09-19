@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {QueryProvider} from 'query-provider'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import {App} from './App'
@@ -11,6 +12,8 @@ if (!container) {
 const root = createRoot(container)
 root.render(
   <StrictMode>
-    <App />
+    <QueryProvider>
+      <App />
+    </QueryProvider>
   </StrictMode>
 )

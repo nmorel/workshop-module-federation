@@ -65,7 +65,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'bookshelf',
       remotes: {
-        list: `list@//localhost:3001/remoteEntry.js`,
+        booklist: `booklist@//localhost:3001/remoteEntry.js`,
         book: `book@//localhost:3002/remoteEntry.js`,
       },
       shared: {
@@ -83,6 +83,9 @@ module.exports = {
           singleton: true,
           eager: false,
           requiredVersion: '^6.4.0',
+        },
+        'react-query': {
+          requiredVersion: '^3.39.2',
         },
       },
     }),

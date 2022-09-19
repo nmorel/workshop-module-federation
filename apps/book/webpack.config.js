@@ -84,6 +84,9 @@ module.exports = {
           eager: false,
           requiredVersion: '^6.4.0',
         },
+        'react-query': {
+          requiredVersion: '^3.39.2',
+        },
       },
     }),
     new HtmlWebpackPlugin({

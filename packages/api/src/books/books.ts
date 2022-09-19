@@ -1,13 +1,16 @@
 import books from './data/books.json'
 
 export default {
-  getAll(): Bookshelf.Book[] {
+  async getAll(): Promise<Bookshelf.Book[]> {
+    await new Promise((_) => setTimeout(_, 500))
     return books
   },
-  get(id: string): Bookshelf.Book | null {
+  async getById(id: string): Promise<Bookshelf.Book | null> {
+    await new Promise((_) => setTimeout(_, 500))
     return books.find((book) => id === book.id) || null
   },
-  findBySlug(slug: string): Bookshelf.Book | null {
+  async getBySlug(slug: string): Promise<Bookshelf.Book | null> {
+    await new Promise((_) => setTimeout(_, 500))
     return books.find((book) => slug === book.slug) || null
   },
 }

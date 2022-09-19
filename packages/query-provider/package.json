@@ -1,0 +1,23 @@
+{
+  "name": "query-provider",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/",
+    "tscheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "^18.0.6"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-query": "^3.39.2"
+  }
+}

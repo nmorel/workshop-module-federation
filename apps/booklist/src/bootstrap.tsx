@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
-import {List} from './List'
+import {Booklist} from './Booklist'
 import {MemoryRouter, Routes, Route} from 'react-router-dom'
+import {QueryProvider} from 'query-provider'
 
 const container = document.getElementById('root')
 if (!container) {
@@ -12,10 +13,12 @@ if (!container) {
 const root = createRoot(container)
 root.render(
   <StrictMode>
-    <MemoryRouter initialEntries={['/']}>
-      <Routes>
-        <Route path="/" element={<List />} />
-      </Routes>
-    </MemoryRouter>
+    <QueryProvider>
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<Booklist />} />
+        </Routes>
+      </MemoryRouter>
+    </QueryProvider>
   </StrictMode>
 )

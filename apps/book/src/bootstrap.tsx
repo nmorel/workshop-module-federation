@@ -3,6 +3,7 @@ import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import {Book} from './Book'
 import {MemoryRouter, Routes, Route} from 'react-router-dom'
+import {QueryProvider} from 'query-provider'
 
 const container = document.getElementById('root')
 if (!container) {
@@ -12,10 +13,12 @@ if (!container) {
 const root = createRoot(container)
 root.render(
   <StrictMode>
-    <MemoryRouter initialEntries={['/books/around-the-world-in-eighty-days']}>
-      <Routes>
-        <Route path="/books/:slug" element={<Book />} />
-      </Routes>
-    </MemoryRouter>
+    <QueryProvider>
+      <MemoryRouter initialEntries={['/books/around-the-world-in-eighty-days']}>
+        <Routes>
+          <Route path="/books/:slug" element={<Book />} />
+        </Routes>
+      </MemoryRouter>
+    </QueryProvider>
   </StrictMode>
 )

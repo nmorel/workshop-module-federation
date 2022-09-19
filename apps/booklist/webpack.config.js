@@ -63,10 +63,10 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'list',
+      name: 'booklist',
       filename: 'remoteEntry.js',
       exposes: {
-        './List': './src/List',
+        './Booklist': './src/Booklist',
       },
       shared: {
         'react': {
@@ -83,6 +83,9 @@ module.exports = {
           singleton: true,
           eager: false,
           requiredVersion: '^6.4.0',
+        },
+        'react-query': {
+          requiredVersion: '^3.39.2',
         },
       },
     }),

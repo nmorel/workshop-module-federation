@@ -26,8 +26,10 @@ importers:
       babel-loader: ^8.2.5
       eslint: 8.23.1
       html-webpack-plugin: ^5.5.0
+      query-provider: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
+      react-query: ^3.39.2
       react-router-dom: ^6.4.0
       tsconfig: workspace:*
       typescript: ^4.5.3
@@ -36,8 +38,55 @@ importers:
       webpack-dev-server: ^4.11.0
     dependencies:
       api: link:../../packages/api
+      query-provider: link:../../packages/query-provider
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@babel/core': 7.19.1
+      '@babel/preset-env': 7.19.1_@babel+core@7.19.1
+      '@babel/preset-react': 7.18.6_@babel+core@7.19.1
+      '@babel/preset-typescript': 7.18.6_@babel+core@7.19.1
+      '@types/react': 18.0.20
+      '@types/react-dom': 18.0.6
+      babel-loader: 8.2.5_rhsdbzevgb5tizdhlla5jsbgyu
+      eslint: 8.23.1
+      html-webpack-plugin: 5.5.0_webpack@5.74.0
+      tsconfig: link:../../configs/ts
+      typescript: 4.8.3
+      webpack: 5.74.0_webpack-cli@4.10.0
+      webpack-cli: 4.10.0_mldmorf72vas4wjtkspcp7zl7m
+      webpack-dev-server: 4.11.0_5v66e2inugklgvlh4huuavolfq
+
+  apps/booklist:
+    specifiers:
+      '@babel/core': ^7.19.1
+      '@babel/preset-env': ^7.19.1
+      '@babel/preset-react': ^7.18.6
+      '@babel/preset-typescript': ^7.18.6
+      '@types/react': 18.0.20
+      '@types/react-dom': ^18.0.6
+      api: workspace:*
+      babel-loader: ^8.2.5
+      eslint: 8.23.1
+      html-webpack-plugin: ^5.5.0
+      query-provider: workspace:*
+      react: 18.2.0
+      react-dom: 18.2.0
+      react-query: ^3.39.2
+      react-router-dom: ^6.4.0
+      tsconfig: workspace:*
+      typescript: ^4.5.3
+      webpack: ^5.74.0
+      webpack-cli: ^4.10.0
+      webpack-dev-server: ^4.11.0
+    dependencies:
+      api: link:../../packages/api
+      query-provider: link:../../packages/query-provider
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
       react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@babel/core': 7.19.1
@@ -66,8 +115,10 @@ importers:
       babel-loader: ^8.2.5
       eslint: 8.23.1
       html-webpack-plugin: ^5.5.0
+      query-provider: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
+      react-query: ^3.39.2
       react-router-dom: ^6.4.0
       tsconfig: workspace:*
       typescript: ^4.5.3
@@ -75,49 +126,10 @@ importers:
       webpack-cli: ^4.10.0
       webpack-dev-server: ^4.11.0
     dependencies:
+      query-provider: link:../../packages/query-provider
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y
-    devDependencies:
-      '@babel/core': 7.19.1
-      '@babel/preset-env': 7.19.1_@babel+core@7.19.1
-      '@babel/preset-react': 7.18.6_@babel+core@7.19.1
-      '@babel/preset-typescript': 7.18.6_@babel+core@7.19.1
-      '@types/react': 18.0.20
-      '@types/react-dom': 18.0.6
-      babel-loader: 8.2.5_rhsdbzevgb5tizdhlla5jsbgyu
-      eslint: 8.23.1
-      html-webpack-plugin: 5.5.0_webpack@5.74.0
-      tsconfig: link:../../configs/ts
-      typescript: 4.8.3
-      webpack: 5.74.0_webpack-cli@4.10.0
-      webpack-cli: 4.10.0_mldmorf72vas4wjtkspcp7zl7m
-      webpack-dev-server: 4.11.0_5v66e2inugklgvlh4huuavolfq
-
-  apps/list:
-    specifiers:
-      '@babel/core': ^7.19.1
-      '@babel/preset-env': ^7.19.1
-      '@babel/preset-react': ^7.18.6
-      '@babel/preset-typescript': ^7.18.6
-      '@types/react': 18.0.20
-      '@types/react-dom': ^18.0.6
-      api: workspace:*
-      babel-loader: ^8.2.5
-      eslint: 8.23.1
-      html-webpack-plugin: ^5.5.0
-      react: 18.2.0
-      react-dom: 18.2.0
-      react-router-dom: ^6.4.0
-      tsconfig: workspace:*
-      typescript: ^4.5.3
-      webpack: ^5.74.0
-      webpack-cli: ^4.10.0
-      webpack-dev-server: ^4.11.0
-    dependencies:
-      api: link:../../packages/api
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
+      react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
       react-router-dom: 6.4.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@babel/core': 7.19.1
@@ -189,6 +201,29 @@ importers:
       tsconfig: workspace:*
       typescript: ^4.5.2
     devDependencies:
+      eslint: 8.23.1
+      eslint-config-custom: link:../../configs/eslint
+      tsconfig: link:../../configs/ts
+      typescript: 4.8.3
+
+  packages/query-provider:
+    specifiers:
+      '@types/react': 18.0.20
+      '@types/react-dom': ^18.0.6
+      eslint: ^8.23.1
+      eslint-config-custom: workspace:*
+      react: 18.2.0
+      react-dom: 18.2.0
+      react-query: ^3.39.2
+      tsconfig: workspace:*
+      typescript: ^4.5.2
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@types/react': 18.0.20
+      '@types/react-dom': 18.0.6
       eslint: 8.23.1
       eslint-config-custom: link:../../configs/eslint
       tsconfig: link:../../configs/ts
@@ -1414,7 +1449,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
-    dev: true
 
   /@babel/template/7.18.10:
     resolution: {integrity: sha512-TI+rCtooWHr3QJ27kJxfjutghu44DLnasDMwpDqCXVTal9RLp3RSYNh4NdBrRP2cQAoG9A8juOQl6P6oZG4JxA==}
@@ -2181,6 +2215,11 @@ packages:
     resolution: {integrity: sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==}
     dev: true
 
+  /big-integer/1.6.51:
+    resolution: {integrity: sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==}
+    engines: {node: '>=0.6'}
+    dev: false
+
   /big.js/5.2.2:
     resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
     dev: true
@@ -2234,6 +2273,19 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       fill-range: 7.0.1
+
+  /broadcast-channel/3.7.0:
+    resolution: {integrity: sha512-cIAKJXAxGJceNZGTZSBzMxzyOn72cVgPnKx4dc6LRjQgbaJUQqhy5rzL3zbMxkMWsGKkv2hSFkPRMEXfoMZ2Mg==}
+    dependencies:
+      '@babel/runtime': 7.19.0
+      detect-node: 2.1.0
+      js-sha3: 0.8.0
+      microseconds: 0.2.0
+      nano-time: 1.0.0
+      oblivious-set: 1.0.0
+      rimraf: 3.0.2
+      unload: 2.2.0
+    dev: false
 
   /browserslist/4.21.4:
     resolution: {integrity: sha512-CBHJJdDmgjl3daYjN5Cp5kbTf1mUhZoS+beLklHIvkOWscs83YAhLlF3Wsh/lciQYAcbBJgTOD44VtG31ZM4Hw==}
@@ -2529,7 +2581,6 @@ packages:
 
   /detect-node/2.1.0:
     resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
-    dev: true
 
   /dir-glob/3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
@@ -3609,6 +3660,10 @@ packages:
   /js-sdsl/4.1.4:
     resolution: {integrity: sha512-Y2/yD55y5jteOAmY50JbUZYwk3CP3wnLPEZnlR1w9oKhITrBEtAxwuWKebFf8hMrPMgbYwFoWK/lH2sBkErELw==}
 
+  /js-sha3/0.8.0:
+    resolution: {integrity: sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==}
+    dev: false
+
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -3734,6 +3789,13 @@ packages:
       semver: 6.3.0
     dev: true
 
+  /match-sorter/6.3.1:
+    resolution: {integrity: sha512-mxybbo3pPNuA+ZuCUhm5bwNkXrJTbsk5VWbR5wiwz/GC6LIiegBGn2w3O08UG/jdbYLinw51fSQ5xNU1U3MgBw==}
+    dependencies:
+      '@babel/runtime': 7.19.0
+      remove-accents: 0.4.2
+    dev: false
+
   /media-typer/0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
@@ -3769,6 +3831,10 @@ packages:
     dependencies:
       braces: 3.0.2
       picomatch: 2.3.1
+
+  /microseconds/0.2.0:
+    resolution: {integrity: sha512-n7DHHMjR1avBbSpsTBj6fmMGh2AGrifVV4e+WYc3Q9lO+xnSZ3NyhcBND3vzzatt05LFhoKFRxrIyklmLlUtyA==}
+    dev: false
 
   /mime-db/1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
@@ -3820,6 +3886,12 @@ packages:
       dns-packet: 5.4.0
       thunky: 1.1.0
     dev: true
+
+  /nano-time/1.0.0:
+    resolution: {integrity: sha512-flnngywOoQ0lLQOTRNexn2gGSNuM9bKj9RZAWSzhQ+UJYaAFG9bac4DW9VHjUAzrOaIcajHybCTHe/bkvozQqA==}
+    dependencies:
+      big-integer: 1.6.51
+    dev: false
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
@@ -3920,6 +3992,10 @@ packages:
       call-bind: 1.0.2
       define-properties: 1.1.4
       es-abstract: 1.20.2
+    dev: false
+
+  /oblivious-set/1.0.0:
+    resolution: {integrity: sha512-z+pI07qxo4c2CulUHCDf9lcqDlMSo72N/4rLUpRXf6fu+q8vjt8y0xS+Tlf8NTJDdTXHbdeO1n3MlbctwEoXZw==}
     dev: false
 
   /obuf/1.1.2:
@@ -4164,6 +4240,25 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
 
+  /react-query/3.39.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-F6hYDKyNgDQfQOuR1Rsp3VRzJnWHx6aRnnIZHMNGGgbL3SBgpZTDg8MQwmxOgpCAoqZJA+JSNCydF1xGJqKOCA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.19.0
+      broadcast-channel: 3.7.0
+      match-sorter: 6.3.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /react-router-dom/6.4.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-4Aw1xmXKeleYYQ3x0Lcl2undHR6yMjXZjd9DKZd53SGOYqirrUThyUb0wwAX5VZAyvSuzjNJmZlJ3rR9+/vzqg==}
     engines: {node: '>=14'}
@@ -4241,7 +4336,6 @@ packages:
 
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
-    dev: true
 
   /regenerator-transform/0.15.0:
     resolution: {integrity: sha512-LsrGtPmbYg19bcPHwdtmXwbW+TqNvtY4riE3P83foeHRroMbH6/2ddFBfab3t7kbzc7v7p4wbkIecHImqt0QNg==}
@@ -4289,6 +4383,10 @@ packages:
     resolution: {integrity: sha512-G08Dxvm4iDN3MLM0EsP62EDV9IuhXPR6blNz6Utcp7zyV3tr4HVNINt6MpaRWbxoOHT3Q7YN2P+jaHX8vUbgog==}
     engines: {node: '>= 0.10'}
     dev: true
+
+  /remove-accents/0.4.2:
+    resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
+    dev: false
 
   /renderkid/3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
@@ -4929,6 +5027,13 @@ packages:
     resolution: {integrity: sha512-6t3foTQI9qne+OZoVQB/8x8rk2k1eVy1gRXhV3oFQ5T6R1dqQ1xtin3XqSlx3+ATBkliTaR/hHyJBm+LVPNM8w==}
     engines: {node: '>=4'}
     dev: true
+
+  /unload/2.2.0:
+    resolution: {integrity: sha512-B60uB5TNBLtN6/LsgAf3udH9saB5p7gqJwcFfbOEZ8BcBHnGwCf6G/TGiEqkRAxX7zAFIUtzdrXQSdL3Q/wqNA==}
+    dependencies:
+      '@babel/runtime': 7.19.0
+      detect-node: 2.1.0
+    dev: false
 
   /unpipe/1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
