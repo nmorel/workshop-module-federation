@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {Item} from './Item'
 import {books} from 'api'
 

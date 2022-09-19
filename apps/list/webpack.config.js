@@ -54,7 +54,7 @@ module.exports = {
               plugins: [...(isFastRefreshEnabled ? ['react-refresh/babel'] : [])],
               presets: [
                 ['@babel/preset-env', {modules: false}],
-                ['@babel/preset-react', {runtime: 'automatic'}],
+                ['@babel/preset-react'],
                 ['@babel/preset-typescript'],
               ],
             },
