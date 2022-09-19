@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "$NODE_ENV"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": ["dist/**"]
     },
     "lint": {
       "outputs": [],
@@ -16,7 +16,12 @@
       ]
     },
     "tscheck": {
-      "outputs": [],
+      "outputs": [".types/**"],
+      "inputs": ["../../configs/ts/*.json", "tsconfig.json", "src/**/*.{js,jsx,ts,tsx,json}"]
+    },
+    "bookshelf#tscheck": {
+      "dependsOn": ["book#tscheck", "booklist#tscheck"],
+      "outputs": [".types/**"],
       "inputs": ["../../configs/ts/*.json", "tsconfig.json", "src/**/*.{js,jsx,ts,tsx,json}"]
     },
     "dev": {

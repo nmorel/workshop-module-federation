@@ -1,4 +1,11 @@
 {
   "extends": "tsconfig/react-library.json",
+  "compilerOptions": {
+    "paths": {
+      "book/*": ["../book/src/*"],
+      "booklist/*": ["../booklist/src/*"]
+    }
+  },
+  "references": [{"path": "../book"}, {"path": "../booklist"}],
   "include": ["src/**/*", "src/**/*.json"]
 }

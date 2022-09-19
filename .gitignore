@@ -113,3 +113,6 @@ dist
 
 # VSCode config
 .vscode
+
+# Generated TS definitions
+.types
