@@ -4,7 +4,9 @@ import {books} from 'api'
 import {useQuery} from 'react-query'
 
 export function Booklist() {
-  const {data: booklist} = useQuery('books', books.getAll, {initialData: []})
+  const {data: booklist, isLoading} = useQuery('books', books.getAll, {initialData: []})
+
+  if (isLoading) return null
 
   return (
     <ul>

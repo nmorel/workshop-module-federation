@@ -6,7 +6,7 @@ import {useQuery} from 'react-query'
 export function Book() {
   const {slug} = useParams()
 
-  const {data: book} = useQuery(
+  const {data: book, isLoading} = useQuery(
     ['book', slug],
     () => {
       if (!slug) return
@@ -14,6 +14,8 @@ export function Book() {
     },
     {enabled: !!slug}
   )
+
+  if (isLoading) return null
 
   if (!book) {
     return <Navigate to="/" replace={true} />
