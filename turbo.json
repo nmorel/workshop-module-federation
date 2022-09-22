@@ -24,6 +24,11 @@
       "outputs": [".types/**"],
       "inputs": ["../../configs/ts/*.json", "tsconfig.json", "src/**/*.{js,jsx,ts,tsx,json}"]
     },
+    "booklist#tscheck": {
+      "dependsOn": ["book#tscheck"],
+      "outputs": [".types/**"],
+      "inputs": ["../../configs/ts/*.json", "tsconfig.json", "src/**/*.{js,jsx,ts,tsx,json}"]
+    },
     "dev": {
       "cache": false
     }
