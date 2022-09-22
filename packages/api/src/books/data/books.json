@@ -1,11 +1,30 @@
 [
   {
     "id": "1",
-    "slug": "around-the-world-in-eighty-days",
-    "title": "Around the World in Eighty Days",
+    "slug": "le-tour-du-monde-en-quatre-vingts-jours",
+    "title": "Le Tour du monde en quatre-vingts jours",
     "year": 1972,
-    "author": "Jules Verne",
-    "plot": "To be defined",
-    "cover": "https://kbimages1-a.akamaihd.net/b39bd5f3-17fa-4d8c-a406-9c88972172fc/353/569/90/False/around-the-world-in-eighty-days-207.jpg"
+    "author": "Jules Verne"
+  },
+  {
+    "id": "2",
+    "slug": "un-drame-au-mexique",
+    "title": "Un drame au Mexique",
+    "year": 1851,
+    "author": "Jules Verne"
+  },
+  {
+    "id": "3",
+    "slug": "un-hivernage-dans-les-glaces",
+    "title": "Un hivernage dans les glaces",
+    "year": 1855,
+    "author": "Jules Verne"
+  },
+  {
+    "id": "4",
+    "slug": "voyage-au-centre-de-la-terre",
+    "title": "Voyage au centre de la Terre",
+    "year": 1864,
+    "author": "Jules Verne"
   }
 ]
