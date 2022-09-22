@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('node:path')
 const {ModuleFederationPlugin} = require('webpack').container
+const deps = require('./package.json').dependencies
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -71,21 +72,18 @@ module.exports = {
       shared: {
         'react': {
           singleton: true,
-          eager: false,
-          requiredVersion: '^18.2.0',
+          requiredVersion: deps['react'],
         },
         'react-dom': {
           singleton: true,
-          eager: false,
-          requiredVersion: '^18.2.0',
+          requiredVersion: deps['react-dom'],
         },
         'react-router-dom': {
           singleton: true,
-          eager: false,
-          requiredVersion: '^6.4.0',
+          requiredVersion: deps['react-router-dom'],
         },
         'react-query': {
-          requiredVersion: '^3.39.2',
+          requiredVersion: deps['react-router-dom'],
         },
       },
     }),
