@@ -1,7 +1,8 @@
 import * as React from 'react'
-import {Item} from './Item'
 import {books} from 'api'
 import {useQuery} from 'react-query'
+
+import BookItem from 'book/BookItem'
 
 export function Booklist() {
   const {data: booklist, isLoading} = useQuery('books', books.getAll, {initialData: []})
@@ -12,7 +13,7 @@ export function Booklist() {
     <ul>
       {booklist?.map((bookListItem) => (
         <li key={bookListItem.slug}>
-          <Item item={bookListItem} />
+          <BookItem item={bookListItem} />
         </li>
       ))}
     </ul>
