@@ -92,6 +92,9 @@ module.exports = {
           'react-query': {
             requiredVersion: deps['react-query'],
           },
+          'api': {
+            singleton: true,
+          },
         },
       ],
     }),

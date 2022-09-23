@@ -70,26 +70,31 @@ module.exports = {
         './Book': './src/Book',
         './BookItem': './src/BookItem',
       },
-      shared: {
-        'react': {
-          singleton: true,
-          requiredVersion: false,
-          version: '0',
+      shared: [
+        {
+          'react': {
+            singleton: true,
+            requiredVersion: false,
+            version: '0',
+          },
+          'react-dom': {
+            singleton: true,
+            requiredVersion: false,
+            version: '0',
+          },
+          'react-router-dom': {
+            singleton: true,
+            requiredVersion: false,
+            version: '0',
+          },
+          'react-query': {
+            requiredVersion: deps['react-query'],
+          },
+          'api': {
+            singleton: true,
+          },
         },
-        'react-dom': {
-          singleton: true,
-          requiredVersion: false,
-          version: '0',
-        },
-        'react-router-dom': {
-          singleton: true,
-          requiredVersion: false,
-          version: '0',
-        },
-        'react-query': {
-          requiredVersion: deps['react-query'],
-        },
-      },
+      ],
     }),
     new HtmlWebpackPlugin({
       templateContent: () => `
