@@ -32,14 +32,7 @@ jobs:
       - name: Lint & Build
         run: pnpm lint tscheck build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: './apps/bookshelf-bundle/dist'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          folder: apps/bookshelf-bundle/dist
