@@ -30,9 +30,12 @@ jobs:
         run: pnpm install
 
       - name: Lint & Build
-        run: pnpm lint tscheck build
+        run: pnpm turbo run lint tscheck build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: apps/bookshelf-bundle/dist
+      - name: Deploy to Production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: pnpm vercel pull --yes --token $VERCEL_TOKEN && vercel build --prod --token $VERCEL_TOKEN && vercel deploy --prebuilt --prod --token $VERCEL_TOKEN
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

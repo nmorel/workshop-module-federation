@@ -18,7 +18,8 @@
     "bookshelf-types": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "prettier-config-custom": "workspace:*",
-    "turbo": "~1.4.7"
+    "turbo": "~1.4.7",
+    "vercel": "^28.4.2"
   },
   "engines": {
     "node": ">=16.0.0"
