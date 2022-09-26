@@ -11,7 +11,6 @@ if (!container) {
 }
 
 ReactDOM.render(
-  container,
   <StrictMode>
     <QueryProvider>
       <MemoryRouter initialEntries={['/']}>
@@ -20,5 +19,6 @@ ReactDOM.render(
         </Routes>
       </MemoryRouter>
     </QueryProvider>
-  </StrictMode>
+  </StrictMode>,
+  container
 )

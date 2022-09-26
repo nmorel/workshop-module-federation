@@ -3,8 +3,9 @@ declare namespace Bookshelf {
     id: string
     slug: string
     title: string
-    plot: string
-    cover: string
     year: number
+    author: string
+    plot: string
+    cover?: string
   }
 }

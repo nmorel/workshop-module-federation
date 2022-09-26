@@ -4,27 +4,31 @@
     "slug": "le-tour-du-monde-en-quatre-vingts-jours",
     "title": "Le Tour du monde en quatre-vingts jours",
     "year": 1972,
-    "author": "Jules Verne"
+    "author": "Jules Verne",
+    "plot": ""
   },
   {
     "id": "2",
     "slug": "un-drame-au-mexique",
     "title": "Un drame au Mexique",
     "year": 1851,
-    "author": "Jules Verne"
+    "author": "Jules Verne",
+    "plot": ""
   },
   {
     "id": "3",
     "slug": "un-hivernage-dans-les-glaces",
     "title": "Un hivernage dans les glaces",
     "year": 1855,
-    "author": "Jules Verne"
+    "author": "Jules Verne",
+    "plot": ""
   },
   {
     "id": "4",
     "slug": "voyage-au-centre-de-la-terre",
     "title": "Voyage au centre de la Terre",
     "year": 1864,
-    "author": "Jules Verne"
+    "author": "Jules Verne",
+    "plot": ""
   }
 ]
