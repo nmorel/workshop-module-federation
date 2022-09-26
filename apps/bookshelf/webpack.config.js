@@ -66,8 +66,8 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'bookshelf',
       remotes: {
-        booklist: `booklist@//localhost:3001/remoteEntry.js`,
-        book: `book@//localhost:3002/remoteEntry.js`,
+        booklist: `booklist@${isProd ? '/remote/booklist' : `//localhost:3001`}/remoteEntry.js`,
+        book: `book@${isProd ? '/remote/book' : `//localhost:3002`}/remoteEntry.js`,
       },
       shared: {
         'react': {

@@ -5,6 +5,10 @@
       "dependsOn": ["^build", "$NODE_ENV"],
       "outputs": ["dist/**"]
     },
+    "serve": {
+      "dependsOn": ["build"],
+      "cache": false
+    },
     "lint": {
       "outputs": [],
       "inputs": [
