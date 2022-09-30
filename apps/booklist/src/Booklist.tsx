@@ -10,13 +10,16 @@ export function Booklist() {
   if (isLoading) return null
 
   return (
-    <ul>
-      {booklist?.map((bookListItem) => (
-        <li key={bookListItem.slug}>
-          <BookItem item={bookListItem} />
-        </li>
-      ))}
-    </ul>
+    <div className="text-center">
+      <h1 className="underline text-2xl my-4">Mes livres</h1>
+      <ul className="flex flex-col gap-2">
+        {booklist?.map((bookListItem) => (
+          <li key={bookListItem.slug}>
+            <BookItem item={bookListItem} />
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 export default Booklist

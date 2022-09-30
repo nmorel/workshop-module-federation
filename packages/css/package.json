@@ -1,0 +1,13 @@
+{
+  "name": "css",
+  "version": "0.0.0",
+  "main": "./src/index.css",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tailwindcss -i src/index.css -o dist/index.css --no-autoprefixer --watch",
+    "build": "tailwindcss -i src/index.css -o dist/index.css --no-autoprefixer"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}

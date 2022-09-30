@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('node:path')
 const {ModuleFederationPlugin} = require('webpack').container
 const deps = require('./package.json').dependencies
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -59,6 +61,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
 
@@ -110,7 +116,16 @@ module.exports = {
         </html>
     `,
     }),
+    new MiniCssExtractPlugin(),
   ],
+
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin({
+        minify: CssMinimizerPlugin.lightningCssMinify,
+      }),
+    ],
+  },
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],

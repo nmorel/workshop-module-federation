@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Navigate, useParams} from 'react-router-dom'
+import {Link, Navigate, useParams} from 'react-router-dom'
 import {books} from 'api'
 import {useQuery} from 'react-query'
 
@@ -23,7 +23,14 @@ export function Book() {
 
   return (
     <>
-      <h1>{book.title}</h1>
+      <div className="text-center">
+        <h1 className="underline text-2xl mx-8 my-4">{book.title}</h1>
+      </div>
+      <div className="absolute top-2 left-2 bg-gray-300 w-6 h-6 rounded-full flex items-center justify-center">
+        <Link className="text-xs" to="/">
+          🏠
+        </Link>
+      </div>
     </>
   )
 }

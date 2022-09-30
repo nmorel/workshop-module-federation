@@ -9,6 +9,7 @@
     "tscheck": "tsc --noEmit"
   },
   "dependencies": {
+    "css": "workspace:*",
     "query-provider": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -23,8 +24,12 @@
     "@types/react": "18.0.21",
     "@types/react-dom": "^18.0.6",
     "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.2.0",
     "eslint": "8.24.0",
     "html-webpack-plugin": "^5.5.0",
+    "lightningcss": "^1.16.0",
+    "mini-css-extract-plugin": "^2.6.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",
