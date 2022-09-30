@@ -17,18 +17,19 @@ const packageJson = JSON.parse(await fs.readFile(path.join(__dirname, '../packag
 
 await Promise.all(
   Object.keys(packageJson.dependencies)
-    .map((key) => require.resolve(`${key}/webpack.config.js`))
-    .map(async (webpackConfigPath) => {
-      const webpackConfig = require(webpackConfigPath)
-      const publicPath: string = webpackConfig.output.publicPath
-
-      const destDir = path.join(distFolder, publicPath)
-      await $`mkdir -p ${destDir}`
-
-      const packageDist = path.join(
-        webpackConfigPath.substring(0, webpackConfigPath.length - '/webpack.config.js'.length),
-        'dist'
-      )
-      await $`cp ${packageDist}/* ${destDir}`
+    .map((key) => {
+      // Using require.resolve to resolve the path of the module in case the module is hoist to the root node_modules
+      const packageJson = require.resolve(`${key}/package.json`)
+      return {
+        sourceFolder: path.join(
+          packageJson.substring(0, packageJson.length - '/package.json'.length),
+          'dist'
+        ),
+        distFolder: path.join(distFolder, key === 'bookshelf' ? '/' : `/remote/${key}`),
+      }
+    })
+    .map(async (folders) => {
+      await $`mkdir -p ${folders.distFolder}`
+      await $`cp ${folders.sourceFolder}/* ${folders.distFolder}`
     })
 )

@@ -13,7 +13,7 @@ module.exports = {
   output: {
     filename: `[name]-[contenthash].js`,
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? '/remote/book/' : 'auto',
+    publicPath: 'auto',
     clean: true,
   },
 
