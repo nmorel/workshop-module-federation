@@ -6,6 +6,6 @@ declare namespace Bookshelf {
     year: number
     author: string
     plot: string
-    cover?: string
+    cover: string
   }
 }
