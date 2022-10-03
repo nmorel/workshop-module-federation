@@ -7,6 +7,36 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 
+const resolveRemote = ({key, url}) => {
+  return isProd
+    ? `http://localhost:4000/remote/${key}/remoteEntry.js`
+    : `((resolve) => {
+    const params = new URLSearchParams(window.location.search)
+    let remoteUrl = '${url}/remoteEntry.js'
+    const devs = params.get('dev')?.split(',').map(_ => _.trim())
+    if(devs?.length && !devs.includes('${key}')) {
+      remoteUrl = 'http://localhost:4000/remote/${key}/remoteEntry.js'
+    } 
+
+    const script = document.createElement('script')
+    script.src = remoteUrl
+    script.onload = () => {
+      const proxy = {
+        get: (request) => window.${key}.get(request),
+        init: (arg) => {
+          try {
+            return window.${key}.init(arg)
+          } catch (e) {
+            console.log('remote container already initialized')
+          }
+        },
+      }
+      resolve(proxy)
+    }
+    document.head.appendChild(script)
+  })`
+}
+
 module.exports = {
   mode: isProd ? 'production' : 'development',
 
@@ -72,7 +102,10 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'bookshelf',
       remotes: {
-        booklist: `booklist@${isProd ? '/remote/booklist' : `//localhost:3001`}/remoteEntry.js`,
+        booklist: `promise new Promise(${resolveRemote({
+          key: 'booklist',
+          url: 'http://localhost:3001',
+        })})`,
         book: `book@${isProd ? '/remote/book' : `//localhost:3002`}/remoteEntry.js`,
       },
       shared: {

@@ -98,6 +98,7 @@ module.exports = {
           },
           'api': {
             singleton: true,
+            requiredVersion: false,
           },
         },
       ],
