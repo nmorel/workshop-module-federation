@@ -10,7 +10,7 @@ export function Booklist() {
   if (isLoading) return null
 
   return (
-    <div className="text-center">
+    <>
       <h1 className="underline text-2xl my-4">Mes livres</h1>
       <ul className="flex flex-col gap-2">
         {booklist?.map((bookListItem) => (
@@ -19,7 +19,7 @@ export function Booklist() {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   )
 }
 export default Booklist

@@ -18,9 +18,11 @@ root.render(
   <StrictMode>
     <QueryProvider>
       <MemoryRouter initialEntries={[`/books/${firstBook.slug}`]}>
-        <Routes>
-          <Route path="/books/:slug" element={<Book />} />
-        </Routes>
+        <div className="px-8">
+          <Routes>
+            <Route path="/books/:slug" element={<Book />} />
+          </Routes>
+        </div>
       </MemoryRouter>
     </QueryProvider>
   </StrictMode>

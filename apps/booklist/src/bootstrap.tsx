@@ -14,9 +14,11 @@ ReactDOM.render(
   <StrictMode>
     <QueryProvider>
       <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route path="/" element={<Booklist />} />
-        </Routes>
+        <div className="px-8">
+          <Routes>
+            <Route path="/" element={<Booklist />} />
+          </Routes>
+        </div>
       </MemoryRouter>
     </QueryProvider>
   </StrictMode>,
