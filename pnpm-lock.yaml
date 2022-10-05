@@ -98,6 +98,7 @@ importers:
       webpack: ^5.74.0
       webpack-cli: ^4.10.0
       webpack-dev-server: ^4.11.1
+      webpack-remotes: workspace:*
     dependencies:
       api: link:../../packages/api
       css: link:../../packages/css
@@ -125,6 +126,7 @@ importers:
       webpack: 5.74.0_webpack-cli@4.10.0
       webpack-cli: 4.10.0_vnmgq7jx5zjkzolvtfp7mdf5ri
       webpack-dev-server: 4.11.1_5v66e2inugklgvlh4huuavolfq
+      webpack-remotes: link:../../configs/webpack
 
   apps/bookshelf:
     specifiers:
@@ -152,6 +154,7 @@ importers:
       webpack: ^5.74.0
       webpack-cli: ^4.10.0
       webpack-dev-server: ^4.11.1
+      webpack-remotes: workspace:*
     dependencies:
       css: link:../../packages/css
       query-provider: link:../../packages/query-provider
@@ -178,6 +181,7 @@ importers:
       webpack: 5.74.0_webpack-cli@4.10.0
       webpack-cli: 4.10.0_vnmgq7jx5zjkzolvtfp7mdf5ri
       webpack-dev-server: 4.11.1_5v66e2inugklgvlh4huuavolfq
+      webpack-remotes: link:../../configs/webpack
 
   apps/bookshelf-bundle:
     specifiers:
@@ -251,6 +255,9 @@ importers:
       bookshelf-types: link:../type
 
   configs/type:
+    specifiers: {}
+
+  configs/webpack:
     specifiers: {}
 
   packages/api:

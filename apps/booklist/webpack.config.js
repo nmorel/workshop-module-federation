@@ -4,6 +4,7 @@ const {ModuleFederationPlugin} = require('webpack').container
 const deps = require('./package.json').dependencies
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const {resolveRemote} = require('webpack-remotes')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -76,7 +77,10 @@ module.exports = {
         './Booklist': './src/Booklist',
       },
       remotes: {
-        book: `book@//localhost:3002/remoteEntry.js`,
+        book: `promise new Promise(${resolveRemote({
+          key: 'book',
+          devUrl: 'http://localhost:3002',
+        })})`,
       },
       shared: [
         {
