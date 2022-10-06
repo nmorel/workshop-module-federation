@@ -29,9 +29,9 @@ module.exports = {
     hot: false,
     historyApiFallback: true,
     port: 3000,
+    allowedHosts: ['workshop-module-federation.vercel.app'],
     webSocketURL: {
       hostname: 'localhost',
-      port: 3000,
     },
     headers: {
       'Access-Control-Allow-Origin': '*',
