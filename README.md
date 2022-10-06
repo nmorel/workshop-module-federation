@@ -20,7 +20,8 @@ Puis executer la commande suivante :
 pnpm i
 ```
 
-Après avoir checkout une branche step-x et lorsque vous modifiez des dépendances, rejouer cette commande pour bien mettre à jour les liens symboliques.
+Après avoir checkout une branche step-x et lorsque vous modifiez des dépendances, rejouer cette commande pour bien mettre à jour les liens symboliques.  
+Si vous n'avez pas internet, ajouter le flag `--offline`, il n'y aura pas de nouveaux packages à télécharger pendant le workshop une fois l'install initiale effectuée.
 
 Pour lancer en mode dev (http://localhost:3000) :
 
