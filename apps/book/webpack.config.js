@@ -9,6 +9,21 @@ module.exports = createConfig('Book', {
   devServer: {
     port: 3002,
   },
+  module: {
+    rules: [
+      {
+        test: /\.[jt]sx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'esbuild-loader',
+          options: {
+            loader: 'tsx',
+            target: 'esnext',
+          },
+        },
+      },
+    ],
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: 'book',

@@ -20,6 +20,7 @@
   "dependencies": {
     "api": "workspace:*",
     "css": "workspace:*",
+    "esbuild-loader": "^2.20.0",
     "query-provider": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",

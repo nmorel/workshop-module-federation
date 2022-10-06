@@ -9,6 +9,17 @@ module.exports = createConfig('List', {
   devServer: {
     port: 3001,
   },
+  module: {
+    rules: [
+      {
+        test: /\.[jt]sx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'swc-loader',
+        },
+      },
+    ],
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: 'booklist',
