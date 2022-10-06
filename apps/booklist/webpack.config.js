@@ -29,6 +29,12 @@ module.exports = {
     hot: false,
     historyApiFallback: true,
     port: 3001,
+    client: {
+      webSocketURL: {
+        hostname: 'localhost',
+        port: 3001,
+      },
+    },
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
