@@ -25,7 +25,6 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
       output: {
         filename: `[name]-[contenthash].js`,
         path: path.join(path.dirname(parentModule()), 'dist'),
-        publicPath: '/',
         clean: true,
       },
 
