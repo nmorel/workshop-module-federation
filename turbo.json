@@ -21,17 +21,7 @@
       ]
     },
     "tscheck": {
-      "outputs": [".types/**"],
-      "inputs": ["../../configs/ts/*.json", "tsconfig.json", "src/**/*.{js,jsx,ts,tsx,json}"]
-    },
-    "bookshelf#tscheck": {
-      "dependsOn": ["book#tscheck", "booklist#tscheck"],
-      "outputs": [".types/**"],
-      "inputs": ["../../configs/ts/*.json", "tsconfig.json", "src/**/*.{js,jsx,ts,tsx,json}"]
-    },
-    "booklist#tscheck": {
-      "dependsOn": ["book#tscheck"],
-      "outputs": [".types/**"],
+      "outputs": [],
       "inputs": ["../../configs/ts/*.json", "tsconfig.json", "src/**/*.{js,jsx,ts,tsx,json}"]
     },
     "dev": {

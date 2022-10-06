@@ -1,7 +1,0 @@
-{
-  "extends": "tsconfig/react-library.json",
-  "include": ["src/**/*", "src/**/*.json"],
-  "compilerOptions": {
-    "outDir": "./.types"
-  }
-}

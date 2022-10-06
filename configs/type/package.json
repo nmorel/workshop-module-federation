@@ -1,7 +1,6 @@
 {
   "name": "bookshelf-types",
   "version": "1.0.0",
-  "main": "",
   "types": "index.d.ts",
   "exports": {
     ".": {
