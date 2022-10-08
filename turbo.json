@@ -26,6 +26,16 @@
     },
     "dev": {
       "cache": false
+    },
+    "doc:build": {
+      "outputs": ["build/**"]
+    },
+    "doc:dev": {
+      "cache": false
+    },
+    "doc:serve": {
+      "dependsOn": ["doc:build"],
+      "cache": false
     }
   }
 }

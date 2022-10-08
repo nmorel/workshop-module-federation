@@ -5,20 +5,22 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "doc:dev": "turbo run doc:dev",
+    "doc:serve": "turbo run doc:serve",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint --continue",
     "serve": "turbo run serve",
-    "tscheck": "turbo run tscheck --continue",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "tscheck": "turbo run tscheck --continue"
   },
   "devDependencies": {
     "bookshelf-types": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "prettier-config-custom": "workspace:*",
     "turbo": "~1.5.5",
-    "vercel": "^28.4.5"
+    "vercel": "^28.4.8"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.14"
   },
   "packageManager": "pnpm@7.12.2"
 }
