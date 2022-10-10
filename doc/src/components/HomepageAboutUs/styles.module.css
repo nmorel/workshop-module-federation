@@ -1,0 +1,18 @@
+.authors {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.authorPhoto {
+  height: 120px;
+  width: 120px;
+  border-radius: 120px;
+  background-color: grey;
+  display: inline-block;
+}
+
+.klaxoonLogo {
+  max-width: 400px;
+}

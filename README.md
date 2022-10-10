@@ -1,7 +1,5 @@
 # Workshop Module Federation
 
-[Slides](https://docs.google.com/presentation/d/1KyICd4iQKsE5fCh82sbRvj-XYVa_aqh6sKtljDmNwFo/edit?usp=sharing)
-
 Biblio de Jules Verne.
 
 Le projet utilise Turborepo (ajouter un lien vers la doc) et pnpm (ajouter un lien vers la doc). Lien vers les workspace ?  
