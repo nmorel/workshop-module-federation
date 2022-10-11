@@ -118,19 +118,19 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
   )
 }
 
+const devToProdUrl = 'http://localhost:4000/'
+
 exports.resolveRemote = ({key, devUrl}) => {
   return `((resolve) => {
     const {host, search} = window.location
     const params = new URLSearchParams(search)
-    let remoteUrl = '${devUrl}/remoteEntry.js'
     const devs = params.get('dev')?.split(',').map(_ => _.trim())
-    if (!devs?.length || !devs.includes('${key}')) {
-      let prefixUrl = '/'
-      if (host.startsWith('localhost:300')) {
-        // Host is in dev mode, redirecting to local prod server
-        prefixUrl = 'http://localhost:4000/'
-      }
-      remoteUrl = prefixUrl + 'remote/${key}/remoteEntry.js'
+    const isHostDev = host.startsWith('localhost:300') 
+
+    const prefixUrl = isHostDev ? '${devToProdUrl}' : '/'
+    let remoteUrl = prefixUrl + 'remote/${key}/remoteEntry.js'
+    if (isHostDev && !devs?.length || devs?.includes('${key}')) {
+      remoteUrl = '${devUrl}/remoteEntry.js' 
     }
 
     const script = document.createElement('script')
