@@ -1,0 +1,41 @@
+name: Documentation
+
+on:
+  push:
+    branches: ['step-00']
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  deploy:
+    name: Deploy
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2.2.2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm --filter=doc doc:build
+
+      - name: Deploy to Vercel
+        if: github.event_name == 'push' && github.ref == 'refs/heads/step-00'
+        run: pnpm vercel pull --yes --token $VERCEL_TOKEN && vercel build --prod --token $VERCEL_TOKEN && vercel deploy --prebuilt --prod --token $VERCEL_TOKEN
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
