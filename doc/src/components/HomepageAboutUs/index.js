@@ -13,7 +13,7 @@ const AuthorList = [
   {
     name: 'Alban Depretz',
     photo: null,
-    description: 'Blablalalaala',
+    description: 'Aahah',
   },
 ]
 
