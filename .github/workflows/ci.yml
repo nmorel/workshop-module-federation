@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ['*']
+    branches: ['step-*']
   pull_request:
     types: [opened, synchronize]
 
@@ -30,4 +30,4 @@ jobs:
         run: pnpm install
 
       - name: Lint & Build
-        run: pnpm turbo run lint tscheck build doc:build
+        run: pnpm turbo run lint tscheck build

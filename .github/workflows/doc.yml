@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: ['step-00']
+    branches: ['step-*']
   pull_request:
     types: [opened, synchronize]
 
@@ -38,4 +38,4 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DOC_PROJECT_ID }}
