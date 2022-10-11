@@ -116,3 +116,5 @@ dist
 
 # Generated TS definitions
 .types
+
+doc/
