@@ -8,7 +8,7 @@ const AuthorList = [
   {
     name: 'Nicolas Morel',
     photo: null,
-    description: 'Blablalalaala',
+    description: 'Youyouyoyu',
   },
   {
     name: 'Alban Depretz',
