@@ -21,6 +21,7 @@ Puis exécuter la commande suivante :
 
 ```bash
 cd workshop-module-federation
+git checkout step-00
 pnpm i
 ```
 

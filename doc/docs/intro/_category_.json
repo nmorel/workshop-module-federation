@@ -1,6 +1,6 @@
 {
-  "label": "Step - 01",
-  "position": 3,
+  "label": "Introduction",
+  "position": 2,
   "link": {
     "type": "generated-index"
   }
