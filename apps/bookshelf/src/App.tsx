@@ -1,7 +1,8 @@
 import * as React from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import {Book} from 'book'
-import {Booklist} from 'booklist'
+// @ts-ignore
+import Booklist from 'booklist/Booklist'
 
 export function App() {
   return (

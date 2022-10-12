@@ -2,18 +2,19 @@ const {createConfig} = require('webpack-config')
 const {ModuleFederationPlugin} = require('webpack').container
 const deps = require('./package.json').dependencies
 
-module.exports = createConfig('Bookshelf', {
+module.exports = createConfig('Booklist', {
   output: {
-    publicPath: '/',
+    publicPath: 'auto',
   },
   devServer: {
-    port: 3000,
+    port: 3001,
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'bookshelf',
-      remotes: {
-        booklist: 'booklist@//localhost:3001/remoteEntry.js',
+      name: 'booklist',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './Booklist': './src/Booklist',
       },
       shared: {
         'react': {
