@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "book": "workspace:*",
-    "booklist": "workspace:*",
     "css": "workspace:*",
     "query-provider": "workspace:*",
     "react": "18.2.0",
