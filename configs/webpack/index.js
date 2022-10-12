@@ -23,6 +23,7 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
       entry: ['./src/index'],
 
       output: {
+        publicPath: '/',
         filename: `[name]-[contenthash].js`,
         path: path.join(path.dirname(parentModule()), 'dist'),
         clean: true,
@@ -33,6 +34,7 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
       },
 
       devServer: {
+        port: 3000,
         liveReload: true,
         hot: false,
         historyApiFallback: true,
