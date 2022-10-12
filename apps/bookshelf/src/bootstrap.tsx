@@ -1,4 +1,3 @@
-import 'css/dist/index.css'
 import * as React from 'react'
 import {QueryProvider} from 'query-provider'
 import {StrictMode} from 'react'
