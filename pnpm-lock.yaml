@@ -21,7 +21,6 @@ importers:
       '@types/react': 18.0.21
       '@types/react-dom': ^18.0.6
       book: workspace:*
-      booklist: workspace:*
       classnames: ^2.3.2
       css: workspace:*
       eslint: 8.25.0
@@ -39,7 +38,6 @@ importers:
       webpack-dev-server: ^4.11.1
     dependencies:
       book: link:../../packages/book
-      booklist: link:../../packages/booklist
       classnames: 2.3.2
       css: link:../../packages/css
       query-provider: link:../../packages/query-provider
@@ -232,6 +230,10 @@ importers:
       react-router-dom: ^6.4.2
       tsconfig: workspace:*
       typescript: ^4.8.4
+      webpack: ^5.74.0
+      webpack-cli: ^4.10.0
+      webpack-config: workspace:*
+      webpack-dev-server: ^4.11.1
     dependencies:
       api: link:../api
       classnames: 2.3.2
@@ -246,6 +248,10 @@ importers:
       eslint: 8.25.0
       tsconfig: link:../../configs/ts
       typescript: 4.8.4
+      webpack: 5.74.0_webpack-cli@4.10.0
+      webpack-cli: 4.10.0_vnmgq7jx5zjkzolvtfp7mdf5ri
+      webpack-config: link:../../configs/webpack
+      webpack-dev-server: 4.11.1_5v66e2inugklgvlh4huuavolfq
 
   packages/css:
     specifiers:
