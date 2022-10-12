@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ['step-*']
+    branches: ['step-08-result']
   pull_request:
     types: [opened, synchronize]
 

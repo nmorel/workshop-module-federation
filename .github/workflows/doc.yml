@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: ['step-*']
+    branches: ['step-00']
   pull_request:
     types: [opened, synchronize]
 
