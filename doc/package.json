@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "doc:docusaurus": "docusaurus",
-    "doc:dev": "docusaurus start",
+    "doc:dev": "docusaurus start --port 3080",
     "doc:build": "docusaurus build",
     "doc:swizzle": "docusaurus swizzle",
     "doc:deploy": "docusaurus deploy",
     "doc:clear": "docusaurus clear",
-    "doc:serve": "docusaurus serve",
+    "doc:serve": "docusaurus serve --port 4080",
     "doc:write-translations": "docusaurus write-translations",
     "doc:write-heading-ids": "docusaurus write-heading-ids"
   },

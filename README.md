@@ -9,7 +9,7 @@ Follow the instructions [here](https://workshop-module-federation-doc.vercel.app
 
 # Commands
 
-Run a local version of the documentation:
+Run a local version of the documentation ([localhost:4080](http://localhost:4080)):
 
 ```bash
 pnpm doc:serve
