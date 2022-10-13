@@ -10,7 +10,6 @@
     "tscheck": "tsc --noEmit"
   },
   "dependencies": {
-    "book": "workspace:*",
     "classnames": "^2.3.2",
     "css": "workspace:*",
     "query-provider": "workspace:*",

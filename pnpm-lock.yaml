@@ -20,7 +20,6 @@ importers:
     specifiers:
       '@types/react': 18.0.21
       '@types/react-dom': ^18.0.6
-      book: workspace:*
       classnames: ^2.3.2
       css: workspace:*
       eslint: 8.25.0
@@ -37,7 +36,6 @@ importers:
       webpack-config: workspace:*
       webpack-dev-server: ^4.11.1
     dependencies:
-      book: link:../../packages/book
       classnames: 2.3.2
       css: link:../../packages/css
       query-provider: link:../../packages/query-provider
@@ -212,6 +210,10 @@ importers:
       react-router-dom: ^6.4.2
       tsconfig: workspace:*
       typescript: ^4.8.4
+      webpack: ^5.74.0
+      webpack-cli: ^4.10.0
+      webpack-config: workspace:*
+      webpack-dev-server: ^4.11.1
     dependencies:
       api: link:../api
       classnames: 2.3.2
@@ -226,6 +228,10 @@ importers:
       eslint: 8.25.0
       tsconfig: link:../../configs/ts
       typescript: 4.8.4
+      webpack: 5.74.0_webpack-cli@4.10.0
+      webpack-cli: 4.10.0_vnmgq7jx5zjkzolvtfp7mdf5ri
+      webpack-config: link:../../configs/webpack
+      webpack-dev-server: 4.11.1_5v66e2inugklgvlh4huuavolfq
 
   packages/booklist:
     specifiers:
@@ -3303,6 +3309,10 @@ packages:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
     dev: false
 
+  /@types/node/18.8.3:
+    resolution: {integrity: sha512-0os9vz6BpGwxGe9LOhgP/ncvYN5Tx1fNcd2TM3rD/aCGBkysb+ZWpXEocG24h6ZzOi13+VB8HndAQFezsSOw1w==}
+    dev: false
+
   /@types/node/18.8.5:
     resolution: {integrity: sha512-Bq7G3AErwe5A/Zki5fdD3O6+0zDChhg671NfPjtIcbtzDNZTv4NPKMRFr7gtYPG7y+B8uTiNK4Ngd9T0FTar6Q==}
 
@@ -3371,7 +3381,7 @@ packages:
   /@types/sax/1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 18.8.3
     dev: false
 
   /@types/scheduler/0.16.2:
