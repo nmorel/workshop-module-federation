@@ -2,7 +2,7 @@ import * as React from 'react'
 import {books} from 'api'
 import {useQuery} from 'react-query'
 
-import {Link} from 'react-router-dom'
+import {BooklistItem} from './BooklistItem'
 
 export function Booklist() {
   const {data: booklist, isLoading} = useQuery('books', books.getAll, {initialData: []})
@@ -15,12 +15,7 @@ export function Booklist() {
       <ul className="flex flex-col gap-2">
         {booklist?.map((bookListItem) => (
           <li key={bookListItem.slug}>
-            <Link
-              className="hover:underline"
-              to={{pathname: `/books/${bookListItem.slug}`, search: window.location.search}}
-            >
-              {bookListItem.title}
-            </Link>
+            <BooklistItem item={bookListItem} />
           </li>
         ))}
       </ul>
