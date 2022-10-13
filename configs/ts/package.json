@@ -5,7 +5,8 @@
   "files": [
     "base.json",
     "nextjs.json",
-    "react-library.json"
+    "react-library.json",
+    "script.json"
   ],
   "dependencies": {
     "bookshelf-types": "workspace:*"
