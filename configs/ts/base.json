@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
-    "composite": false,
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
@@ -16,6 +16,10 @@
     "skipLibCheck": true,
     "strict": true,
     "resolveJsonModule": true,
-    "types": ["bookshelf-types"]
+    "types": ["bookshelf-types"],
+    "paths": {
+      "book/*": ["../../apps/book/src/*"],
+      "booklist/*": ["../../apps/booklist/src/*"]
+    }
   }
 }

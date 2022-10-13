@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve",
     "lint": "eslint src/",
-    "tscheck": "tsc --noEmit"
+    "tscheck": "tsc"
   },
   "dependencies": {
     "api": "workspace:*",

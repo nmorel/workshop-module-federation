@@ -12,10 +12,10 @@ export function Booklist() {
   return (
     <>
       <h1 className="underline text-2xl my-4">Mes livres</h1>
-      <ul className="flex flex-col gap-2">
-        {booklist?.map((bookListItem) => (
+      <ul className="flex flex-col">
+        {booklist?.map((bookListItem, index) => (
           <li key={bookListItem.slug}>
-            <BooklistItem item={bookListItem} />
+            <BooklistItem book={bookListItem} highlighted={index % 2 === 0} />
           </li>
         ))}
       </ul>
