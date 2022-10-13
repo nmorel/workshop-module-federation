@@ -1,8 +1,10 @@
 import * as React from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
-import {Book} from 'book'
+
 // @ts-ignore
-import Booklist from 'booklist/Booklist'
+const Book = React.lazy(() => import('book/Book'))
+// @ts-ignore
+const Booklist = React.lazy(() => import('booklist/Booklist'))
 
 export function App() {
   return (
@@ -19,8 +21,22 @@ export function App() {
           <main className="px-4 sm:px-8 md:px-16 flex justify-center flex-1">
             <div className="max-w-5xl relative flex-1">
               <Routes>
-                <Route path="/" element={<Booklist />} />
-                <Route path="/books/:slug" element={<Book />} />
+                <Route
+                  path="/"
+                  element={
+                    <React.Suspense>
+                      <Booklist />
+                    </React.Suspense>
+                  }
+                />
+                <Route
+                  path="/books/:slug"
+                  element={
+                    <React.Suspense>
+                      <Book />
+                    </React.Suspense>
+                  }
+                />
               </Routes>
             </div>
           </main>
