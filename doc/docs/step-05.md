@@ -19,8 +19,6 @@ La squad `Book` change le contrat d'interface du composant `BooklistItem` et la 
 
 **Réparer Typescript.**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-05-result
-```
+<Solution step="05" />

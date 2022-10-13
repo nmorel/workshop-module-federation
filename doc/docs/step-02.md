@@ -23,8 +23,6 @@ Les squads souhaiteraient désormais développer sur leur périmètre sans avoir
 
 **Lancer l'application `Book` en standalone.**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-02-result
-```
+<Solution step="02" />

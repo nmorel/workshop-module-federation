@@ -1,0 +1,23 @@
+import CodeBlock from '@theme/CodeBlock'
+
+export const Link = ({step, children}) => (
+  <a
+    href={`https://github.com/nmorel/workshop-module-federation/compare/step-${step}...step-${step}-result`}
+  >
+    {children}
+  </a>
+)
+
+## Solution
+
+Pour accéder à la solution :
+
+<CodeBlock language="bash">git checkout step-{props.step}-result</CodeBlock>
+
+Pour voir les changements :
+
+<CodeBlock language="bash">
+  git diff step-{props.step}..step-{props.step}-result
+</CodeBlock>
+
+ou sur <Link step={props.step}>Github</Link>.

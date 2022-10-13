@@ -19,8 +19,6 @@ Les squads ne comprennent pas la gestion des shared.
 
 **TODO.**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-03-result
-```
+<Solution step="03" />

@@ -21,8 +21,6 @@ Comme elle devient responsable du rendu de ces items, elle souhaite rapatrier le
 
 **Déplacer le composant `BooklistItem` dans `apps/book` et l'exposer via Module Federation.**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-04-result
-```
+<Solution step="04" />

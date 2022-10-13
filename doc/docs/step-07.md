@@ -20,8 +20,6 @@ Il y a un bug sur l'application qui ne se produit qu'en lançant l'intégralité
 
 **Charger un module dynamiquement.**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-07-result
-```
+<Solution step="07" />

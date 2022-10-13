@@ -20,8 +20,6 @@ Mais maintenant le build avec babel montre ses limites et prend beaucoup de temp
 
 **Utiliser un autre builder (esbuild, swc) sur le module `Booklist`.**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-08-result
-```
+<Solution step="08" />

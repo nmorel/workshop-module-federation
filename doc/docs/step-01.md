@@ -44,7 +44,7 @@ Pour augmenter l'autonomie et la productivité de ces squads, nous allons utilis
    }
 ```
 
-2. Créer un fichier `webpack.config.js`
+2. Créer un fichier `webpack.config.js`.
 
 ```js title="packages/booklist/webpack.config.js"
 const {createConfig} = require('webpack-config')
@@ -65,13 +65,22 @@ module.exports = createConfig('Booklist', {
 })
 ```
 
+:::info
+
+`webpack-config` est un package interne fournissant une configuration Webpack par défaut.  
+Vous pouvez la surcharger en passant à la fonction `createConfig` une config Webpack en second paramètre.  
+Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs/webpack-merge).
+
+:::
+
 3. Configurer le plugin Module Federation.  
    Il s'agit d'un _remote_ qui doit exposer le composant `Booklist`.  
    Inspirez-vous de l'exemple situé [ici](./intro/module-federation.md/#exemple).
 
 ### Dans `apps/bookshelf` :
 
-1. Supprimer la dépendance `booklist`, vous n'en aurez plus besoin ! Puis rejouer la commande `pnpm i --offline` pour appliquer la suppression.
+1. Supprimer la dépendance `booklist`, vous n'en aurez plus besoin !  
+   Puis rejouer la commande `pnpm i --offline` pour appliquer la suppression.
 
 ```diff title="apps/bookshelf/package.json"
    "dependencies": {
@@ -95,7 +104,7 @@ module.exports = createConfig('Booklist', {
 ### Vérifier que tout fonctionne
 
 1. Jouer la commande `pnpm dev`, elle va lancer les scripts `dev` de `bookshelf` et `booklist`.
-1. Vérifier que l'application fonctionne à l'adresse suivante : http://localhost:3000.  
+1. Vérifier que l'application fonctionne à l'adresse suivante : [http://localhost:3000](http://localhost:3000).  
    Si ce n'est pas le cas, vérifier votre configuration et notamment la partie `shared` 🙂
 1. Dans vos devtools, onglet Network, regarder les fichiers JS chargés.  
    Le composant `Booklist` est chargé depuis le port 3001.
@@ -108,8 +117,6 @@ module.exports = createConfig('Booklist', {
 
 **Charger les composants `Booklist` et `Book` en asynchrone (hint: `React.lazy`).**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-01-result
-```
+<Solution step="01" />

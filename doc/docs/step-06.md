@@ -20,8 +20,6 @@ Mais ce n'est pas le cas des OPS car l'application n'est plus déployable !
 
 **Générer un bundle pouvant être déployer n'importe où.**
 
-## Résultat
+import Solution from './partials/\_solution.mdx';
 
-```bash
-git checkout step-06-result
-```
+<Solution step="06" />
