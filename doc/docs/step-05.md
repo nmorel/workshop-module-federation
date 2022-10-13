@@ -15,6 +15,19 @@ La squad `Book` change le contrat d'interface du composant `BooklistItem` et la 
 
 ## Exercice
 
-**Réparer Typescript.**
+**Modifier la configuration Typescript pour avoir le bon typage dans `apps/booklist/src/Booklist`.**
+
+Pour cela, utiliser le [Path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) et les [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html#what-is-a-project-reference).  
+Pour info, tous les fichiers de configuration TS étendent de `configs/ts/base.json`.
+
+## Bonus 01
+
+**Modifier la configuration Typescript pour avoir le bon typage dans `apps/bookshelf/src/App`.**
+
+## Bonus 02
+
+**Essayer le [plugin officiel](https://github.com/module-federation/typescript).**
+
+Nous avons trouvé la solution en pur TS plus simple et plus adapté à cet exemple mais vous pouvez l'essayer pour vous faire votre propre avis 😉.
 
 <Solution step="05" />
