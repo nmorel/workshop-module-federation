@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 
-// @ts-ignore
 const Book = React.lazy(() => import('book/Book'))
-// @ts-ignore
 const Booklist = React.lazy(() => import('booklist/Booklist'))
 
 export function App() {

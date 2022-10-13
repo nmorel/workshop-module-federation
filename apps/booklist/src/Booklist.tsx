@@ -2,7 +2,6 @@ import * as React from 'react'
 import {books} from 'api'
 import {useQuery} from 'react-query'
 
-// @ts-ignore
 import BooklistItem from 'book/BooklistItem'
 
 export function Booklist() {
