@@ -2,14 +2,12 @@
 sidebar_position: 11
 ---
 
-# Step - 08
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 08
 
-```bash
-git checkout step-08
-pnpm i --offline
-```
+<Branch step="08" />
 
 ## Description
 
@@ -19,7 +17,5 @@ Mais maintenant le build avec babel montre ses limites et prend beaucoup de temp
 ## Exercice
 
 **Utiliser un autre builder (esbuild, swc) sur le module `Booklist`.**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="08" />

@@ -2,14 +2,12 @@
 sidebar_position: 9
 ---
 
-# Step - 06
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 06
 
-```bash
-git checkout step-06
-pnpm i --offline
-```
+<Branch step="06" />
 
 ## Description
 
@@ -19,7 +17,5 @@ Mais ce n'est pas le cas des OPS car l'application n'est plus déployable !
 ## Exercice
 
 **Générer un bundle pouvant être déployer n'importe où.**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="06" />

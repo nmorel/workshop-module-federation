@@ -2,14 +2,12 @@
 sidebar_position: 6
 ---
 
-# Step - 03
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 03
 
-```bash
-git checkout step-03
-pnpm i --offline
-```
+<Branch step="03" />
 
 ## Description
 
@@ -18,7 +16,5 @@ Les squads ne comprennent pas la gestion des shared.
 ## Exercice
 
 **TODO.**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="03" />

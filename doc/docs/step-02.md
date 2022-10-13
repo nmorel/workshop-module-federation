@@ -2,14 +2,12 @@
 sidebar_position: 5
 ---
 
-# Step - 02
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 02
 
-```bash
-git checkout step-02
-pnpm i --offline
-```
+<Branch step="02" />
 
 ## Description
 
@@ -22,7 +20,5 @@ Les squads souhaiteraient désormais développer sur leur périmètre sans avoir
 ## Bonus
 
 **Lancer l'application `Book` en standalone.**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="02" />

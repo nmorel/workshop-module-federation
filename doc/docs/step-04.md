@@ -2,14 +2,12 @@
 sidebar_position: 7
 ---
 
-# Step - 04
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 04
 
-```bash
-git checkout step-04
-pnpm i --offline
-```
+<Branch step="04" />
 
 ## Description
 
@@ -20,7 +18,5 @@ Comme elle devient responsable du rendu de ces items, elle souhaite rapatrier le
 ## Exercice
 
 **Déplacer le composant `BooklistItem` dans `apps/book` et l'exposer via Module Federation.**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="04" />

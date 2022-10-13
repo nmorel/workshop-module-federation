@@ -2,14 +2,12 @@
 sidebar_position: 10
 ---
 
-# Step - 07
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 07
 
-```bash
-git checkout step-07
-pnpm i --offline
-```
+<Branch step="07" />
 
 ## Description
 
@@ -19,7 +17,5 @@ Il y a un bug sur l'application qui ne se produit qu'en lançant l'intégralité
 ## Exercice
 
 **Charger un module dynamiquement.**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="07" />

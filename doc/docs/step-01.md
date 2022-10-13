@@ -2,14 +2,12 @@
 sidebar_position: 4
 ---
 
-# Step - 01
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 01
 
-```bash
-git checkout step-01
-pnpm i --offline
-```
+<Branch step="01" />
 
 ## Description
 
@@ -116,7 +114,5 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 ## Bonus 02
 
 **Charger les composants `Booklist` et `Book` en asynchrone (hint: `React.lazy`).**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="01" />

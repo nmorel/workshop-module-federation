@@ -2,14 +2,12 @@
 sidebar_position: 8
 ---
 
-# Step - 05
+import Branch from './partials/\_branch.mdx';
+import Solution from './partials/\_solution.mdx';
 
-## Branche
+# Étape 05
 
-```bash
-git checkout step-05
-pnpm i --offline
-```
+<Branch step="05" />
 
 ## Description
 
@@ -18,7 +16,5 @@ La squad `Book` change le contrat d'interface du composant `BooklistItem` et la 
 ## Exercice
 
 **Réparer Typescript.**
-
-import Solution from './partials/\_solution.mdx';
 
 <Solution step="05" />
