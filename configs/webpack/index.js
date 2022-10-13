@@ -7,6 +7,8 @@ const {mergeWithRules} = require('webpack-merge')
 
 const isProd = process.env.NODE_ENV === 'production'
 
+exports.isProd = isProd
+
 exports.createConfig = (label = 'App', overrideConfig = {}) => {
   return mergeWithRules({
     module: {

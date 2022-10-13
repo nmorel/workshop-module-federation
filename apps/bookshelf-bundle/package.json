@@ -5,6 +5,7 @@
   "scripts": {
     "build": "NODE_ENV=production ts-node-esm --swc -- ./scripts/build.mts",
     "lint": "eslint scripts/",
+    "serve": "serve -s -p 4000 ./dist",
     "tscheck": "tsc --noEmit"
   },
   "dependencies": {

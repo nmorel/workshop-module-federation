@@ -6,7 +6,6 @@
     "build": "NODE_ENV=production webpack",
     "dev": "webpack serve",
     "lint": "eslint src/",
-    "serve": "serve -s -p 4000 ./dist",
     "tscheck": "tsc --noEmit"
   },
   "dependencies": {

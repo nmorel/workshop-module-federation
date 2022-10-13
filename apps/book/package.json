@@ -4,6 +4,7 @@
   "private": true,
   "main": "./src/index.ts",
   "scripts": {
+    "build": "NODE_ENV=production webpack",
     "dev": "webpack serve",
     "lint": "eslint src/",
     "tscheck": "tsc"
