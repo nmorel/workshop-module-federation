@@ -12,3 +12,5 @@ export function BooklistItem({item}: {item: Bookshelf.Book}) {
     </Link>
   )
 }
+
+export default BooklistItem

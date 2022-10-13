@@ -15,6 +15,7 @@ module.exports = createConfig('Book', {
       filename: 'remoteEntry.js',
       exposes: {
         './Book': './src/Book',
+        './BooklistItem': './src/BooklistItem',
       },
       shared: {
         'react': {

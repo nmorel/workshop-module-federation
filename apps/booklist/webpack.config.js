@@ -16,6 +16,9 @@ module.exports = createConfig('Booklist', {
       exposes: {
         './Booklist': './src/Booklist',
       },
+      remotes: {
+        book: 'book@//localhost:3002/remoteEntry.js',
+      },
       shared: {
         'react': {
           singleton: true,
