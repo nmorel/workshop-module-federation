@@ -12,6 +12,7 @@
   "dependencies": {
     "api": "workspace:*",
     "classnames": "^2.3.2",
+    "css": "workspace:*",
     "query-provider": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
