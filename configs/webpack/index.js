@@ -86,6 +86,7 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
 
       plugins: [
         new HtmlWebpackPlugin({
+          favicon: path.join(__dirname, 'favicon.ico'),
           templateContent: () => `
           <!DOCTYPE html>
           <html>
