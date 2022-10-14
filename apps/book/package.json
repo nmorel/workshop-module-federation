@@ -12,6 +12,7 @@
   "dependencies": {
     "api": "workspace:*",
     "classnames": "^2.3.2",
+    "css": "workspace:*",
     "query-provider": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -19,9 +20,11 @@
     "react-router-dom": "^6.4.2"
   },
   "devDependencies": {
+    "@swc/core": "^1.3.4",
     "@types/react": "18.0.21",
     "@types/react-dom": "^18.0.6",
     "eslint": "8.25.0",
+    "swc-loader": "^0.2.3",
     "tsconfig": "workspace:*",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",
