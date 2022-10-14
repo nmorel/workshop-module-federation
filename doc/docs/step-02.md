@@ -35,6 +35,10 @@ Au lieu d'exporter le composant exposé, on souhaite créer un point d'entrée c
       </MemoryRouter>
 ``` 
 
+:::info
+Si tu rencontres l'erreur suivante : `QueryClientProvider.js:33 Uncaught Error: No QueryClient set, use QueryClientProvider to set one` c'est sûrement qu'il manque le `QueryProvider`. Celui-ci était fourni par le `Bookshelf` ce qui n'est plus le cas.
+:::
+
 2. Charger `bootstrap.tsx` depuis l'`index.ts` :
 
 ```
@@ -54,19 +58,33 @@ Précédemment c'était l'application Host `Bookshelf` qui les chargaient. Il fa
 :::
 
 
-4. Charge le css via en ajoutant l'import :
+4. Charge le css via en ajoutant l'import dans `index.ts` :
 ```
 import 'css/dist/index.css'
 ```
+
+Ne pas oubliez de spécifier la dépendence `"css": "workspace:*"` au package.json du module.
 
 Tester à nouveau l'application `Booklist`. La squad `Booklist` peut désormais travailler sur son périmètre en s'affranchissant des autres modules de l'application!
 
 5. `Booklist` est un point d'entrée séparé. Vous pouvez déplacer le répertoire dans `/apps` pour qu'elle reflète ce changement.
 
+:::info
+Au lieu d'importer le fichier `bootstrap.tsx` dynamiquement, essayes de l'importer statiquement via `import './bootstrap`.
+Oupps... `Shared module is not available for eager consumption`
+En enlevant la barrière asynchrone, Webpack n'est pas capable de charger toutes les dépendences requises par `bootstrap.tsx` avant son exécution. `React` n'étant pas disponible en mode `eager`, l'exécution échoue.
+:::
 ## Bonus
 
 **Lancer l'application `Book` en standalone.**
 
 La squad `Book` est jalouse! Elle est encore obligé de lancer toute l'application pour travailler sur son périmètre. Aidez les à lancer leur application en standalone.
+
+:::info
+Tu pourra configurer le router pour que aller chercher un livre en fonction du slug de l'url :
+```<Route path="/books/:slug" element={<Book />} />```
+Tu pourras charger un livre par défaut :
+```const [firstBook] = await books.getAll()``` 
+:::
 
 <Solution step="02" />
