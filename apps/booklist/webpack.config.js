@@ -22,11 +22,13 @@ module.exports = createConfig('Booklist', {
       shared: {
         'react': {
           singleton: true,
-          requiredVersion: deps['react'],
+          requiredVersion: false,
+          version: '0',
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: deps['react-dom'],
+          requiredVersion: false,
+          version: '0',
         },
         'react-router-dom': {
           singleton: true,
