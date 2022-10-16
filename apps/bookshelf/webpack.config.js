@@ -18,10 +18,12 @@ module.exports = createConfig('Bookshelf', {
       },
       shared: {
         'react': {
-          requiredVersion: '^18.1.0',
+          singleton: true,
+          requiredVersion: deps['react'],
         },
         'react-dom': {
-          requiredVersion: '^18.1.0',
+          singleton: true,
+          requiredVersion: deps['react-dom'],
         },
         'react-router-dom': {
           singleton: true,

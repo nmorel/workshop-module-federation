@@ -18,10 +18,14 @@ module.exports = createConfig('Booklist', {
       },
       shared: {
         'react': {
-          requiredVersion: '^18.1.0',
+          singleton: true,
+          requiredVersion: false,
+          version: '0',
         },
         'react-dom': {
-          requiredVersion: '^18.1.0',
+          singleton: true,
+          requiredVersion: false,
+          version: '0',
         },
         'react-router-dom': {
           singleton: true,
