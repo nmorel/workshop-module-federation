@@ -13,8 +13,8 @@
     "classnames": "^2.3.2",
     "css": "workspace:*",
     "query-provider": "workspace:*",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-query": "^3.39.2",
     "react-router-dom": "^6.4.2"
   },
