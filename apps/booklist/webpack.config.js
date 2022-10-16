@@ -33,6 +33,10 @@ module.exports = createConfig('Booklist', {
           singleton: true,
           requiredVersion: deps['react-query'],
         },
+        'api': {
+          singleton: true,
+          requiredVersion: false,
+        },
       },
     }),
   ],
