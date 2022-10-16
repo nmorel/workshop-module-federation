@@ -18,10 +18,10 @@ module.exports = createConfig('Book', {
       },
       shared: {
         'react': {
-          requiredVersion: '^18.0.1',
+          requiredVersion: '^18.1.0',
         },
         'react-dom': {
-          requiredVersion: '^18.0.1',
+          requiredVersion: '^18.1.0',
         },
         'react-router-dom': {
           singleton: true,
