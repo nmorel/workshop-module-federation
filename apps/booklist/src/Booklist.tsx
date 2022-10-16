@@ -14,9 +14,9 @@ export function Booklist() {
     <>
       <h1 className="underline text-2xl my-4">Mes livres</h1>
       <ul className="flex flex-col gap-2">
-        {booklist?.map((bookListItem) => (
+        {booklist?.map((bookListItem, index) => (
           <li key={bookListItem.slug}>
-            <BooklistItem item={bookListItem} />
+            <BooklistItem item={bookListItem} className={index % 2 === 0 ? 'bg-slate-100' : ''} />
           </li>
         ))}
       </ul>
