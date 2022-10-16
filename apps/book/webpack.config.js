@@ -34,6 +34,10 @@ module.exports = createConfig('Book', {
           singleton: true,
           requiredVersion: deps['react-query'],
         },
+        'api': {
+          singleton: true,
+          requiredVersion: false,
+        },
       },
     }),
   ],
