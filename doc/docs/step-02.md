@@ -72,7 +72,8 @@ Tester à nouveau l'application `Booklist`. La squad `Booklist` peut désormais 
 :::info
 Au lieu d'importer le fichier `bootstrap.tsx` dynamiquement, essayes de l'importer statiquement via `import './bootstrap`.
 Oupps... `Shared module is not available for eager consumption`
-En enlevant la barrière asynchrone, Webpack n'est pas capable de charger toutes les dépendences requises par `bootstrap.tsx` avant son exécution. `React` n'étant pas disponible en mode `eager`, l'exécution échoue.
+En enlevant la barrière asynchrone, Webpack n'est pas capable de charger toutes les dépendences requises par `bootstrap.tsx` en synchrone car par defaut `React` est disponible en asynchrone sans le mode `eager`.
+https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption
 :::
 ## Bonus
 
