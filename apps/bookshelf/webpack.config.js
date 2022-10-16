@@ -18,7 +18,6 @@ module.exports = createConfig('Bookshelf', {
       },
       shared: {
         'react': {
-          singleton: true,
           requiredVersion: deps['react'],
         },
         'react-dom': {
