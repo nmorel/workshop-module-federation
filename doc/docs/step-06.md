@@ -11,7 +11,7 @@ import Solution from './partials/\_solution.mdx';
 
 ## Description
 
-Les squads sont contentes, elles peuvent développer en toute autonomie.  
+Les équipes sont contentes, elles peuvent développer en toute autonomie.  
 Mais ce n'est pas le cas de l'équipe OPS car ils ne peuvent plus déployer l'application !  
 En effet, `Bookshelf` cherche à télécharger les `remoteEntry.js` de `Booklist` et de `Book` depuis `localhost`.
 
@@ -31,7 +31,7 @@ L'arborescence sera la suivante :
 Le script générant ce bundle est déjà présent (`apps/bookshelf-bundle/scripts/build.mts`).  
 Il vous reste donc à modifier la configuration.
 
-1. Déplacer le script `serve` (qui ne fonctionnait plus depuis l'étape 01 😱) vers le nouveau package `bookshelf-bundle`.
+1. Déplacez le script `serve` (qui ne fonctionnait plus depuis l'étape 01 😱) vers le nouveau package `bookshelf-bundle`.
 
 ```diff title="apps/bookshelf/package.json"
    "scripts": {
@@ -52,7 +52,7 @@ Il vous reste donc à modifier la configuration.
    },
 ```
 
-2. Ajouter le script `build` sur les _remotes_.
+2. Ajoutez le script `build` sur les _remotes_.
 
 ```diff title="apps/book/package.json"
    "scripts": {
@@ -72,10 +72,10 @@ Il vous reste donc à modifier la configuration.
    },
 ```
 
-3. Mettre à jour la configuration du plugin Module Federation pour remplacer les urls vers `//localhost` par `/remote/xxx`.  
-   (Bonus) Utiliser la variable d'environnement `NODE_ENV` pour différencier la production du dev et ainsi conserver `//localhost` en dev.
+3. MàJ la configuration du plugin Module Federation pour remplacer les urls vers `//localhost` par `/remote/xxx`.  
+   (Bonus) Utilisez la variable d'environnement `NODE_ENV` pour différencier la production du dev et ainsi conserver `//localhost` en dev.
 
-4. Vérifier que vos modifications fonctionnent en lançant le script `serve`.
+4. Vérifiez que vos modifications fonctionnent en lançant le script `serve`.
 
 ```bash
 pnpm serve
