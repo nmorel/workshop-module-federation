@@ -1,4 +1,4 @@
-const {createConfig, isProd} = require('webpack-config')
+const {createConfig, resolveRemote, isProd} = require('webpack-config')
 const {ModuleFederationPlugin} = require('webpack').container
 const deps = require('./package.json').dependencies
 
@@ -32,7 +32,10 @@ module.exports = createConfig('Booklist', {
         './Booklist': './src/Booklist',
       },
       remotes: {
-        book: `book@${isProd ? '/remote/book' : '//localhost:3002'}/remoteEntry.js`,
+        book: `promise new Promise(${resolveRemote({
+          key: 'book',
+          url: 'http://localhost:3002',
+        })})`,
       },
       shared: {
         'react': {
