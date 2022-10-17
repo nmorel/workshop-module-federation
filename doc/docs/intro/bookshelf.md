@@ -8,7 +8,7 @@ sidebar_position: 2
 
 L'application `Bookshelf` liste les romans de Jules Verne et fournit une vue détaillée de chaque roman.  
 Le projet est organisé en [monorepo](https://monorepo.tools/). Il utilise [pnpm](https://pnpm.io/), son gestionnaire de [workspace](https://pnpm.io/workspaces) et [Turborepo](https://turborepo.org/).  
-Le frontend est développé avec [React](https://reactjs.org/). Pour simplifier l'atelier, il n'y a pas de backend, juste des données en dur.
+Le frontend est développé avec [React](https://reactjs.org/) et [Tailwind](https://tailwindcss.com/). Pour simplifier l'atelier, il n'y a pas de backend, juste des données en dur.
 
 ## Structure
 

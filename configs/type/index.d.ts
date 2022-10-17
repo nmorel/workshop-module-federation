@@ -9,3 +9,8 @@ declare namespace Bookshelf {
     cover: string
   }
 }
+
+declare module '*.jpeg' {
+  const value: string
+  export default value
+}
