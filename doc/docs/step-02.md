@@ -23,7 +23,7 @@ Le point d'entrée `index.ts` est déjà spécifié dans la config Webpack par d
 
 Au lieu d'exporter le composant exposé, on souhaite créer un point d'entrée capable de charger le module en standalone.
 
-1. Créer un fichier `bootstrap.tsx` en vous inspirant de celui de `Bookshelf`. Au lieu d'utiliser `BrowserRouter`, vous pouvez utiliser `MemoryRouter` avec une unique route vers `Booklist` :
+1. Créez un fichier `bootstrap.tsx` en vous inspirant de celui de `Bookshelf`. Au lieu d'utiliser `BrowserRouter`, vous pouvez utiliser `MemoryRouter` avec une unique route vers `Booklist` :
 
 ```jsx
 <MemoryRouter initialEntries={['/']}>
@@ -39,26 +39,26 @@ Au lieu d'exporter le composant exposé, on souhaite créer un point d'entrée c
 Si vous rencontrez l'erreur suivante : `QueryClientProvider.js:33 Uncaught Error: No QueryClient set, use QueryClientProvider to set one` c'est sûrement qu'il manque le `QueryProvider`. Celui-ci était fourni par le `Bookshelf` ce qui n'est plus le cas.
 :::
 
-2. Charger `bootstrap.tsx` depuis l'`index.ts` :
+2. Chargez `bootstrap.tsx` depuis l'`index.ts` :
 
 ```
 import('./bootstrap')
 ```
 
-3. Lancer `Booklist` uniquement en standalone : 
+3. Lancez `Booklist` uniquement en standalone : 
 
 ```
 pnpm run -F booklist dev
 ```
 
 :::info
-Tester l'application sur le port 3001.  
+Testez l'application sur le port 3001.  
 Ouchh les styles ne sont pas appliqués.
 Précédemment c'était l'application Host `Bookshelf` qui les chargaient. Il faut désormais que `Booklist` soit capable de les charger.
 :::
 
 
-4. Charge le css via en ajoutant l'import dans `index.ts` :
+4. Chargez le css via en ajoutant l'import dans `index.ts` :
 ```
 import 'css/dist/index.css'
 ```

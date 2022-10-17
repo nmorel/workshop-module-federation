@@ -11,7 +11,7 @@ import Solution from './partials/\_solution.mdx';
 
 ## Description
 
-Comment gérer les versions des paquets partagés via l'option `shared` ? Vous allez aidez l'équipe `Booklist` à comprendre l'utilisation de l'option `shared`. ([doc](https://webpack.js.org/plugins/module-federation-plugin/#sharing-hints))
+Comment gérer les versions des paquets partagés via l'option `shared` ? Vous allez aider l'équipe `Booklist` à comprendre l'utilisation de l'option `shared`. ([doc](https://webpack.js.org/plugins/module-federation-plugin/#sharing-hints))
 
 ## Exercice
 
@@ -25,8 +25,8 @@ Ouvrez les dev tools de votre navigateur sur l'onglet Network. Vous remarquerez 
 
 MàJ la version de `react` de l'app `Booklist` dans le package.json.
 
-L'équipe ne comprends pas le fonctionnement de l'option `shared`.
-Elle décide de MàJ les `requiredVersion` dans la configuration de MF dans `Booklist` :
+L'équipe ne comprends pas le fonctionnement de l'option `shared`. Elle repart d'une configuration simple.
+Elle décide ensuite de MàJ les `requiredVersion` dans la configuration de MF dans `Booklist` :
 ```json
         'react': {
           requiredVersion: '^18.2.0',
@@ -52,11 +52,11 @@ Module Federation utilise le `Semantic Versionning` pour récupérer la version 
           requiredVersion: '18.1.0',
         }
 ```
-Relance `pnpm dev`.
+Relancez `pnpm dev`.
 
 Ouchh si vous ouvrez vos dev tools vous verrez 2 versions de react téléchargées. 
 
-L'option `singleton` a la rescousse! Rajoutes la à la configuration de `Bookshelf` :
+L'option `singleton` a la rescousse! Rajoutez la à la configuration de `Bookshelf` :
 
 ```json
         'react': {
@@ -70,10 +70,10 @@ L'option `singleton` a la rescousse! Rajoutes la à la configuration de `Bookshe
 ```
 
 :::info
-L'option `singleton` utilise la version la plus élevée indépendamment du semantic versioning. Vous pouvez utiliser l'option `strictVersion` pour lancer une exception dés qu'il y a un mismatch de version. Vous pouvez essayer en utilisant `react` à version `17.2.0` sur le Host par exemple.
+L'option `singleton` utilise la version la plus élevée indépendamment du semantic versioning. Vous pouvez utiliser l'option `strictVersion` pour lancer une exception dés qu'il y a un mismatch de version.
 :::
 
-4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si on veut utiliser la version du Host quoiqu'il arrive on peut utiliser la config suivante sur les remotes `Booklist` et `Book` :
+4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si nous voulons utiliser la version du Host quoiqu'il arrive nous pouvons utiliser la config suivante sur les remotes `Booklist` et `Book` :
 ```json
           'react': {
             singleton: true,
@@ -88,6 +88,6 @@ En spécifiant `version: '0'`, ils utiliseront désormais la version de `react` 
 
 Depuis l'onglet Network des dev tools, retrouvez le chargement du module `Booklist`. Vous y trouverez le chargement du package api ` ../../packages/api`. Bizarrement (ou pas) vous retrouvez ces mêmes fichiers chargés séparemment à la fois par le module `Book` et par le module `Booklist` qui l'utilisent tous les deux. Les équipes aimerait ne pas avoir à retélécharger le module une 2ème fois.
 
-1. MaJ les configs webpack de `Book` et `Booklist` pour ne charger qu'une seule fois le module `api`.
+1. MàJ les configs webpack de `Book` et `Booklist` pour ne charger qu'une seule fois le module `api`.
 
 <Solution step="03" />
