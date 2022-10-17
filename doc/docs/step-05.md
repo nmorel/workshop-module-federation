@@ -11,13 +11,13 @@ import Solution from './partials/\_solution.mdx';
 
 ## Description
 
-La squad `Book` change le contrat d'interface du composant `BooklistItem` et la squad `Booklist` ne s'en aperçoit pas 😱.
+L'équipe `Book` change le contrat d'interface du composant `BooklistItem` et l'équipe `Booklist` ne s'en aperçoit pas 😱.
 
 ## Exercice
 
 **Modifier la configuration Typescript pour avoir le bon typage dans `apps/booklist/src/Booklist`.**
 
-Pour cela, utiliser le [Path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) et les [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html#what-is-a-project-reference).  
+Pour cela, utilisez le [Path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) et les [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html#what-is-a-project-reference).  
 Pour info, tous les fichiers de configuration TS étendent de `configs/ts/base.json`.
 
 ## Bonus 01
