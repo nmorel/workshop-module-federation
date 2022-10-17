@@ -11,16 +11,16 @@ import Solution from './partials/\_solution.mdx';
 
 ## Description
 
-L'équipe de Bookshelf grossit et souhaite créer 2 squads, une pour la page de listing et une pour la page de description d'un livre.  
-Pour augmenter l'autonomie et la productivité de ces squads, nous allons utiliser Module Federation.
+L'application de `Bookshelf` grossit. 2 équipes travaillent désormais sur le projet, une pour la vue liste et une pour la vue de détails d'un roman.  
+Pour augmenter l'autonomie et la productivité de ces équipes, nous allons utiliser Module Federation.
 
 ## Exercice
 
-**Charger le composant `Booklist` via Module Federation.**
+#### Charger le composant `Booklist` via Module Federation.
 
-### Dans `packages/booklist` :
+#### Dans `packages/booklist` :
 
-1. Ajouter le script de build et les devDependencies pour webpack dans le `package.json`
+1. Ajouter le script `dev` et les devDependencies pour webpack dans le `package.json`
 
 ```diff title="packages/booklist/package.json"
    "scripts": {
@@ -41,6 +41,8 @@ Pour augmenter l'autonomie et la productivité de ces squads, nous allons utilis
 +    "webpack-dev-server": "^4.11.1"
    }
 ```
+
+Installez les dépendances : `pnpm i`
 
 2. Créer un fichier `webpack.config.js`.
 
@@ -75,7 +77,7 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
    Il s'agit d'un _remote_ qui doit exposer le composant `Booklist`.  
    Inspirez-vous de l'exemple situé [ici](./intro/module-federation.md/#exemple).
 
-### Dans `apps/bookshelf` :
+#### Dans `apps/bookshelf` :
 
 1. Supprimer la dépendance `booklist`, vous n'en aurez plus besoin !  
    Puis rejouer la commande `pnpm i --offline` pour appliquer la suppression.
