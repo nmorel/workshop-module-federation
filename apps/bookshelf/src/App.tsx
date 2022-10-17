@@ -13,7 +13,7 @@ export function App() {
         <header className="px-4 sm:px-8 md:px-16 flex justify-center items-center h-12 bg-red-400">
           <div className="max-w-5xl text-white flex-1">
             <Link to={{pathname: '/', search: window.location.search}}>
-              <h1 className="text-3xl font-serif">Bookshelf</h1>
+              <h1 className="text-3xl font-serif">Bibliothèque</h1>
             </Link>
           </div>
         </header>
