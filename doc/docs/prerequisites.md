@@ -34,7 +34,7 @@ Si vous n'avez pas internet, ajouter le flag `--offline`, il n'y aura pas de nou
 
 ## Documentation
 
-Pour avoir une version de la doc offline :
+Pour avoir une version de la documentation hors-ligne ([localhost:4080](http://localhost:4080)) :
 
 ```bash
 pnpm doc:serve
