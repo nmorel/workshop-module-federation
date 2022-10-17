@@ -125,3 +125,26 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
     overrideConfig
   )
 }
+exports.resolveRemote = ({key, url}) => {
+  return `((resolve) => {
+    const {host, search} = window.location
+    const params = new URLSearchParams(search)
+    const remoteUrl = '${url}/remoteEntry.js'
+    const script = document.createElement('script')
+    script.src = remoteUrl
+    script.onload = () => {
+      const proxy = {
+        get: (request) => window.${key}.get(request),
+        init: (arg) => {
+          try {
+            return window.${key}.init(arg)
+          } catch (e) {
+            console.log('remote container already initialized')
+          }
+        },
+      }
+      resolve(proxy)
+    }
+    document.head.appendChild(script)
+  })`
+}
