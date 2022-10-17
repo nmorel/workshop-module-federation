@@ -47,6 +47,7 @@ Ne pas oublier de changer les config de `Booklist` et de `Bookshelf` pour la ré
 Faire en sorte qu'en mode dev :
 - Par défaut tout soit chargé depuis les bundler de dev
 - On ne puisse avoir que le Host `Bookshelf` en mode dev
+- Choisir `localhost:4000` comme étant la production du mode dev. (On peut choisir n'importe quelle version déployée)
 
 
 <Solution step="07" />
