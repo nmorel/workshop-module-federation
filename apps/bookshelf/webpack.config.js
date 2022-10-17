@@ -1,4 +1,4 @@
-const {createConfig, isProd} = require('webpack-config')
+const {createConfig, resolveRemote, isProd} = require('webpack-config')
 const {ModuleFederationPlugin} = require('webpack').container
 const deps = require('./package.json').dependencies
 
@@ -13,8 +13,14 @@ module.exports = createConfig('Bookshelf', {
     new ModuleFederationPlugin({
       name: 'bookshelf',
       remotes: {
-        booklist: `booklist@${isProd ? '/remote/booklist' : '//localhost:3001'}/remoteEntry.js`,
-        book: `book@${isProd ? '/remote/book' : '//localhost:3002'}/remoteEntry.js`,
+        booklist: `promise new Promise(${resolveRemote({
+          key: 'booklist',
+          url: 'http://localhost:3001',
+        })})`,
+        book: `promise new Promise(${resolveRemote({
+          key: 'book',
+          url: 'http://localhost:3002',
+        })})`,
       },
       shared: {
         'react': {
