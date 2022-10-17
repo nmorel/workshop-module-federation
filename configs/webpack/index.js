@@ -92,17 +92,17 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
         new HtmlWebpackPlugin({
           favicon: path.join(__dirname, 'favicon.ico'),
           templateContent: () => `
-          <!DOCTYPE html>
-          <html>
-          <head>
-              <meta charset="utf-8" />
-              <title>${label}</title>
-          </head>
-          <body>
-              <div id="root"></div>
-          </body>
-          </html>
-      `,
+              <!DOCTYPE html>
+              <html>
+              <head>
+                  <meta charset="utf-8" />
+                  <title>${label}</title>
+              </head>
+              <body>
+                  <div id="root"></div>
+              </body>
+              </html>
+          `,
         }),
         new MiniCssExtractPlugin(),
       ],
