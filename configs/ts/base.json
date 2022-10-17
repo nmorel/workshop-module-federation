@@ -15,7 +15,7 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": false,
     "types": ["bookshelf-types"],
     "paths": {
       "book/*": ["../../apps/book/src/*"],
