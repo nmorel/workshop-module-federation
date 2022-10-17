@@ -81,6 +81,10 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
             test: /.css$/,
             use: [MiniCssExtractPlugin.loader, require.resolve('css-loader')],
           },
+          {
+            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            type: 'asset/resource',
+          },
         ],
       },
 
