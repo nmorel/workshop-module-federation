@@ -6,14 +6,14 @@ const KlaxoonSvg = require('@site/static/img/klaxoon_white.svg').default
 
 const AuthorList = [
   {
-    name: 'Nicolas Morel',
-    photo: null,
-    description: 'Youyouyoyu',
+    name: 'Alban Depretz',
+    photo: require('@site/static/img/alban.jpg').default,
+    description: '🏄‍♂️',
   },
   {
-    name: 'Alban Depretz',
-    photo: null,
-    description: 'Aahah',
+    name: 'Nicolas Morel',
+    photo: require('@site/static/img/nicolas.jpg').default,
+    description: '🐠',
   },
 ]
 
