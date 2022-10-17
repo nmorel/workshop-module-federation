@@ -47,7 +47,7 @@ git push
 
 git checkout step-05
 git pull
-git merge --no-edit step-04-result
+git merge --no-edit origin/step-04-result
 git push
 
 git checkout step-05-result
