@@ -11,7 +11,7 @@ export function Booklist() {
 
   return (
     <>
-      <h1 className="underline text-2xl my-4">Mes livres</h1>
+      <h1 className="underline text-2xl my-4">Livres</h1>
       <ul className="flex flex-col">
         {booklist?.map((bookListItem, index) => (
           <li key={bookListItem.slug}>
