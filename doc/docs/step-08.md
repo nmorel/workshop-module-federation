@@ -11,7 +11,7 @@ import Solution from './partials/\_solution.mdx';
 
 ## Description
 
-La squad `Booklist` a bien bossé et a crée un super composant de liste (scroll infini, virtualisation, 120+ fps, animation d'entrée/sortie, la totale !).  
+L'équipe `Booklist` a bien bossé et a crée un super composant de liste (scroll infini, virtualisation, 120+ fps, animation d'entrée/sortie, la totale !).  
 Mais maintenant le build avec babel montre ses limites et prend beaucoup de temps.
 
 ## Exercice
