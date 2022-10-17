@@ -1,4 +1,4 @@
-import books from './data/books.json'
+import books from './data'
 
 export default {
   async getAll(): Promise<Bookshelf.Book[]> {
