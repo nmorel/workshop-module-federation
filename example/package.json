@@ -1,0 +1,13 @@
+{
+  "name": "module-federation-example",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter=host --filter=remote1 run build",
+    "dev": "pnpm --filter=host --filter=remote1 run dev"
+  },
+  "engines": {
+    "node": ">=16.14"
+  },
+  "packageManager": "pnpm@7.12.2"
+}
