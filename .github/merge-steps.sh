@@ -85,5 +85,10 @@ git pull
 git merge --no-edit origin/step-08 
 git push
 
+git checkout step-final
+git pull
+git merge --no-edit origin/step-08-result 
+git push
+
 git checkout step-00
 echo "Done !"
