@@ -32,10 +32,10 @@ module.exports = createConfig('Booklist', {
         './Booklist': './src/Booklist',
       },
       remotes: {
-        book: `promise new Promise(${resolveRemote({
+        book: resolveRemote({
           key: 'book',
-          url: 'http://localhost:3002',
-        })})`,
+          dev: 'http://localhost:3002',
+        }),
       },
       shared: {
         'react': {
