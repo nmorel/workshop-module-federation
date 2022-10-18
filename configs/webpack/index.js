@@ -129,8 +129,8 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
 exports.resolveRemote = ({key, dev}) => {
   return `promise new Promise((resolve) => {
     const {host, search} = window.location
-    const params = new URLSearchParams(search)
-    const devs = (params.get('dev') || '').split(',').map(_ => _.trim())
+    const params = (new URLSearchParams(search)).get('dev')
+    const devs = params ? params.split(',').map(_ => _.trim()) : []
 
     // TODO : Use the list of modules in dev to compute the remoteUrl.
     const remoteUrl = '${isProd ? `/remote/${key}` : dev}/remoteEntry.js'
