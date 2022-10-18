@@ -127,7 +127,7 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
 }
 
 exports.resolveRemote = ({key, dev}) => {
-  return `((resolve) => {
+  return `promise new Promise((resolve) => {
     const {host, search} = window.location
     const params = new URLSearchParams(search)
     const devs = (params.get('dev') || '').split(',').map(_ => _.trim())
