@@ -19,15 +19,32 @@ Comment gérer les versions des paquets partagés via l'option `shared` ? Vous a
 
 1. Lancez le script `dev` : `pnpm dev`
 
-Ouvrez les dev tools de votre navigateur sur l'onglet Network. Vous remarquerez que vos dépendances partagées (`react`, `react-dom`, `react-query` et `react-dom-router`) ne sont chargées qu'une seule fois depuis le Host ([localhost:3000](http://localhost:3000)). Les autres modules les réutilisent! 
+Ouvrez les dev tools de votre navigateur sur l'onglet Network. Vous remarquerez que vos dépendances partagées (`react`, `react-dom`, `react-query` et `react-dom-router`) ne sont chargées qu'une seule fois depuis le Host ([localhost:3000](http://localhost:3000)). Les autres modules les réutilisent!
 
-2. Si vous regardez vos dev tools, la version de `react` est la 18.1.0. Depuis la version 18.1.0 de `react` est disponible. L'équipe `Booklist` a à coeur d'avoir ses dépendances à jour et décide de MaJ `react` à la version 18.2.0.
+2. Si vous regardez vos dev tools, la version de `react` est la 18.1.0.  
+   L'équipe `Booklist` a à coeur d'avoir ses dépendances à jour et décide de MaJ `react` à la version 18.2.0.
 
-MàJ la version de `react` de l'app `Booklist` dans le package.json.
+Commencez par mettre à jour la version de `react` de l'app `Booklist` dans le package.json :
+
+```diff
+   "dependencies": {
+     "api": "workspace:*",
+     "classnames": "^2.3.2",
+     "css": "workspace:*",
+     "query-provider": "workspace:*",
+-    "react": "18.1.0",
+-    "react-dom": "18.1.0",
++    "react": "18.2.0",
++    "react-dom": "18.2.0",
+     "react-query": "^3.39.2",
+     "react-router-dom": "^6.4.2"
+   },
+```
 
 L'équipe ne comprends pas le fonctionnement de l'option `shared`. Elle repart d'une configuration simple.
 Elle décide ensuite de MàJ les `requiredVersion` dans la configuration de MF dans `Booklist` :
-```json
+
+```js
         'react': {
           requiredVersion: '^18.2.0',
         },
@@ -35,16 +52,18 @@ Elle décide ensuite de MàJ les `requiredVersion` dans la configuration de MF d
           requiredVersion: '^18.2.0',
         }
 ```
-Installez à nouveau les dépendances via `pnpm i`. Executes à nouveau : `pnpm dev`
 
-Depuis tes dev tools, vous remarquerez que c'est la version 18.2.0 qui est chargé qu'une seule fois encore mais depuis le remote `Booklist` cette fois ([localhost:3001](http://localhost:3001)).
+Installez à nouveau les dépendances via `pnpm i`. Exécutez à nouveau : `pnpm dev`
+
+Depuis vos dev tools, vous remarquerez que c'est la version 18.2.0 qui n'est chargée qu'une seule fois encore mais depuis le remote `Booklist` ([localhost:3001](http://localhost:3001)).
 
 :::info
 Module Federation utilise le `Semantic Versionning` pour récupérer la version compatible la plus à jour. Ici le Host `Bookshelf` enregistre dans le contexte partagé `react:18.1.0` alors que `Booklist` enregistre `react:18.2.0`. Sachant que la dépendence `react` est spécifié via `^18.1.0` dans les `shared`, elle est compatible avec une montée de patch vers la version `18.2.0`, c'est donc la version `18.2.0` de `Booklist` qui est utilisée.
 :::
 
 3. Fixez la version de `react` de manière strict dans la config de MF de `Bookshelf` :
-```json
+
+```js
 	'react': {
           requiredVersion: '18.1.0',
         },
@@ -52,13 +71,14 @@ Module Federation utilise le `Semantic Versionning` pour récupérer la version 
           requiredVersion: '18.1.0',
         }
 ```
+
 Relancez `pnpm dev`.
 
-Ouchh si vous ouvrez vos dev tools vous verrez 2 versions de react téléchargées. 
+Ouchh si vous ouvrez vos dev tools vous verrez 2 versions de react téléchargées.
 
 L'option `singleton` a la rescousse! Rajoutez la à la configuration de `Bookshelf` :
 
-```json
+```js
         'react': {
           singleton: true,
           requiredVersion: '18.1.0',
@@ -70,11 +90,12 @@ L'option `singleton` a la rescousse! Rajoutez la à la configuration de `Bookshe
 ```
 
 :::info
-L'option `singleton` utilise la version la plus élevée indépendamment du semantic versioning. Vous pouvez utiliser l'option `strictVersion` pour lancer une exception dés qu'il y a un mismatch de version.
+L'option `singleton` utilise la version la plus élevée indépendamment du semantic versioning. Vous pouvez utiliser l'option `strictVersion` pour lancer une exception dès qu'il y a un mismatch de version.
 :::
 
 4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si nous voulons utiliser la version du Host quoiqu'il arrive nous pouvons utiliser la config suivante sur les remotes `Booklist` et `Book` :
-```json
+
+```js
           'react': {
             singleton: true,
             requiredVersion: false,
