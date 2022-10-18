@@ -86,5 +86,10 @@ git pull --rebase --autostash
 git rebase --onto step-08 step-08@{1} step-08-result
 git push --force-with-lease origin step-08-result
 
+git checkout step-final
+git pull --rebase --autostash
+git rebase --onto step-08-result step-08-result@{1} step-final
+git push --force-with-lease origin step-final
+
 git checkout step-00
 echo "Done !"
