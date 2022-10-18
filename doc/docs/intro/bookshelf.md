@@ -17,6 +17,7 @@ Le frontend est développé avec [React](https://reactjs.org/) et [Tailwind](htt
 - _apps_ : contient les applications buildables et déployables
 - _configs_ : contient des packages de configuration (Webpack, ESLint, Prettier, Typescript)
 - _doc_ : [Docusaurus](https://docusaurus.io/) pour cette documentation
+- _example_ : Exemple d'utilisation de Module Federation
 - _packages_ : contient du code partagé (composants, api)
 
 ### Code
