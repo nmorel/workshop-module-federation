@@ -19,11 +19,11 @@ Les équipes souhaitent désormais développer sur leur périmètre sans avoir �
 
 #### Dans `packages/booklist` :
 
-Le point d'entrée `index.ts` est déjà spécifié dans la config Webpack par défaut. 
+Le point d'entrée `index.ts` est déjà spécifié dans la config Webpack par défaut.
 
 Au lieu d'exporter le composant exposé, on souhaite créer un point d'entrée capable de charger le module en standalone.
 
-1. Créez un fichier `bootstrap.tsx` en vous inspirant de celui de `Bookshelf`. Au lieu d'utiliser `BrowserRouter`, vous pouvez utiliser `MemoryRouter` avec une unique route vers `Booklist` :
+1. Créez un fichier `App.tsx` en vous inspirant de celui de `Bookshelf`. Au lieu d'utiliser `BrowserRouter`, vous pouvez utiliser `MemoryRouter` avec une unique route vers `Booklist` :
 
 ```jsx
 <MemoryRouter initialEntries={['/']}>
@@ -33,19 +33,19 @@ Au lieu d'exporter le composant exposé, on souhaite créer un point d'entrée c
     </Routes>
   </div>
 </MemoryRouter>
-``` 
+```
 
 :::info
 Si vous rencontrez l'erreur suivante : `QueryClientProvider.js:33 Uncaught Error: No QueryClient set, use QueryClientProvider to set one` c'est sûrement qu'il manque le `QueryProvider`. Celui-ci était fourni par le `Bookshelf` ce qui n'est plus le cas.
 :::
 
-2. Chargez `bootstrap.tsx` depuis l'`index.ts` :
+2. Copiez/collez le fichier `bootstrap.tsx` de `Bookshelf` et chargez le depuis l'`index.ts` :
 
 ```
 import('./bootstrap')
 ```
 
-3. Lancez `Booklist` uniquement en standalone : 
+3. Lancez `Booklist` uniquement en standalone :
 
 ```
 pnpm run -F booklist dev
@@ -57,8 +57,8 @@ Ouchh les styles ne sont pas appliqués.
 Précédemment c'était l'application Host `Bookshelf` qui les chargaient. Il faut désormais que `Booklist` soit capable de les charger.
 :::
 
-
 4. Chargez le css via en ajoutant l'import dans `index.ts` :
+
 ```
 import 'css/dist/index.css'
 ```
@@ -66,11 +66,12 @@ import 'css/dist/index.css'
 Ne pas oubliez de spécifier la dépendance `"css": "workspace:*"` au package.json du module.
 
 Testez à nouveau l'application `Booklist` en lançant la commande :
+
 ```
 pnpm run -F booklist... --parallel dev
 ```
 
- L'équipe `Booklist` peut désormais travailler sur son périmètre en s'affranchissant des autres modules de l'application!
+L'équipe `Booklist` peut désormais travailler sur son périmètre en s'affranchissant des autres modules de l'application!
 
 5. `Booklist` est un point d'entrée séparé. Vous pouvez déplacer le répertoire dans `/apps` pour qu'elle reflète ce changement.
 
@@ -80,6 +81,7 @@ Oupps... `Shared module is not available for eager consumption`.
 En enlevant la chargement asynchrone, Webpack n'est pas capable de charger toutes les dépendances requises par `bootstrap.tsx` en synchrone car par defaut `react` est disponible en asynchrone sans le mode `eager`.
 https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption
 :::
+
 ## Bonus
 
 #### Lancer l'application `Book` en standalone
@@ -88,9 +90,9 @@ L'équipe `Book` est jalouse! Elle est encore obligée de lancer toute l'applica
 
 :::info
 Vous pourrez configurer le router pour aller chercher un livre en fonction du slug de l'url :  
-```<Route path="/books/:slug" element={<Book />} />```.  
+`<Route path="/books/:slug" element={<Book />} />`.  
 Vous pourrez charger un livre par défaut s'il y en aucun de spécifier avec :  
-```<MemoryRouter initialEntries={['/']}>``` 
+`<MemoryRouter initialEntries={['/']}>`
 :::
 
 <Solution step="02" />
