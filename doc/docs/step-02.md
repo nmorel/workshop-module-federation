@@ -25,7 +25,7 @@ Au lieu d'exporter le composant exposé, on souhaite créer un point d'entrée c
 
 1. Créez un fichier `App.tsx` en vous inspirant de celui de `Bookshelf`. Au lieu d'utiliser `BrowserRouter`, vous pouvez utiliser `MemoryRouter` avec une unique route vers `Booklist` :
 
-```jsx
+```jsx title="packages/booklist/src/App.tsx"
 <MemoryRouter initialEntries={['/']}>
   <div className="px-8">
     <Routes>
@@ -35,13 +35,9 @@ Au lieu d'exporter le composant exposé, on souhaite créer un point d'entrée c
 </MemoryRouter>
 ```
 
-:::info
-Si vous rencontrez l'erreur suivante : `QueryClientProvider.js:33 Uncaught Error: No QueryClient set, use QueryClientProvider to set one` c'est sûrement qu'il manque le `QueryProvider`. Celui-ci était fourni par le `Bookshelf` ce qui n'est plus le cas.
-:::
-
 2. Copiez/collez le fichier `bootstrap.tsx` de `Bookshelf` et chargez le depuis l'`index.ts` :
 
-```
+```js title="packages/booklist/src/index.ts"
 import('./bootstrap')
 ```
 
@@ -52,18 +48,34 @@ pnpm run -F booklist dev
 ```
 
 :::info
-Testez l'application sur le port 3001.  
+Si vous rencontrez l'erreur suivante : `QueryClientProvider.js:33 Uncaught Error: No QueryClient set, use QueryClientProvider to set one` c'est sûrement qu'il manque le `QueryProvider`. Celui-ci était fourni par le `Bookshelf` ce qui n'est plus le cas.
+:::
+
+
+Tester `Booklist` sur le port [3001](http://localhost:3001).  
+
+:::info
 Ouchh les styles ne sont pas appliqués.
 Précédemment c'était l'application Host `Bookshelf` qui les chargaient. Il faut désormais que `Booklist` soit capable de les charger.
-:::
+:::info
 
 4. Chargez le css via en ajoutant l'import dans `index.ts` :
 
-```
+```js title="packages/booklist/src/index.ts"
 import 'css/dist/index.css'
+import('./bootstrap')
 ```
 
-Ne pas oubliez de spécifier la dépendance `"css": "workspace:*"` au package.json du module.
+N'oubliez de spécifier la dépendance `css` : 
+
+```diff title="packages/booklist/package.json"
+  "dependencies": {
+  "api": "workspace:*",
+  "classnames": "^2.3.2",
++ "css": "workspace:*",
+```
+
+Réinstallez les dépendences via `pnpm i`
 
 Testez à nouveau l'application `Booklist` en lançant la commande :
 
