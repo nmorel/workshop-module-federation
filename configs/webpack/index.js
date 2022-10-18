@@ -126,14 +126,28 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
   )
 }
 
+const devToProdUrl = 'http://localhost:4000'
+
 exports.resolveRemote = ({key, dev}) => {
   return `promise new Promise((resolve) => {
     const {host, search} = window.location
     const params = (new URLSearchParams(search)).get('dev')
-    const devs = params ? params.split(',').map(_ => _.trim()) : []
+    const devs = params ? params.split(',').filter(Boolean).map(_ => _.trim()) : []
 
-    // TODO : Use the list of modules in dev to compute the remoteUrl.
-    const remoteUrl = '${isProd ? `/remote/${key}` : dev}/remoteEntry.js'
+    let remoteUrl
+
+    // BONUS
+    const isHostDev = host.startsWith('localhost:300') 
+    if(isHostDev) {
+      if(!devs.length) remoteUrl = '${dev}/remoteEntry.js' 
+      else if(devs.includes('${key}')) remoteUrl = '${dev}/remoteEntry.js' 
+      else remoteUrl = '${devToProdUrl}/remote/${key}/remoteEntry.js'
+
+    // EXERCICE
+    } else {
+      if(devs.includes('${key}')) remoteUrl = '${dev}/remoteEntry.js' 
+      else remoteUrl = '/remote/${key}/remoteEntry.js'
+    }
 
     const script = document.createElement('script')
     script.src = remoteUrl

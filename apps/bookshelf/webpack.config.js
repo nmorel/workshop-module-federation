@@ -13,14 +13,14 @@ module.exports = createConfig('Bookshelf', {
     new ModuleFederationPlugin({
       name: 'bookshelf',
       remotes: {
-        booklist: `promise new Promise(${resolveRemote({
+        booklist: resolveRemote({
           key: 'booklist',
-          url: 'http://localhost:3001',
-        })})`,
-        book: `promise new Promise(${resolveRemote({
+          dev: 'http://localhost:3001',
+        }),
+        book: resolveRemote({
           key: 'book',
-          url: 'http://localhost:3002',
-        })})`,
+          dev: 'http://localhost:3002',
+        }),
       },
       shared: {
         'react': {
