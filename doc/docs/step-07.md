@@ -25,38 +25,39 @@ Jusqu'à présent, les urls des remotes étaient en dur.
 
 Utilisez la doc webpack ([doc](https://webpack.js.org/concepts/module-federation/#promise-based-dynamic-remotes)) pour charger les remotes de `Bookshelf` et `Booklist` via l'api `promise` :
 
+:::info
+Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/webpack/index` que vous pouvez réutiliser.
+:::
+
+
 ```diff title="apps/bookshelf/webpack.config.js"
     remotes: {
 -      booklist: `booklist@${isProd ? '/remote/booklist' : '//localhost:3001'}/remoteEntry.js`,
 -      book: `book@${isProd ? '/remote/book' : '//localhost:3002'}/remoteEntry.js`,
-+      booklist: `promise new Promise(${resolveRemote({
++      booklist: resolveRemote({
 +        key: 'booklist',
-+        url: 'http://localhost:3001',
-+      })})`,
-+      book: `promise new Promise(${resolveRemote({
++        dev: 'http://localhost:3001',
++      })
++      book: resolveRemote({
 +        key: 'book',
-+        url: 'http://localhost:3002',
-+      })})`,
++        dev: 'http://localhost:3002',
++      })
     },
 ```
 
 ```diff title="apps/booklist/webpack.config.js"
     remotes: {
 -      book: `book@${isProd ? '/remote/book' : '//localhost:3002'}/remoteEntry.js`,
-+      book: `promise new Promise(${resolveRemote({
++      book: resolveRemote({
 +        key: 'book',
-+        url: 'http://localhost:3002',
-+      })})`,
++        dev: 'http://localhost:3002',
++      })
     },
 ```
 
-:::info
-Un de vos collègues a déja lu la doc et il vous a mis à disposition une fonction utilitaire `resolveRemote` dans `configs/webpack/index` que vous pouvez réutiliser.
-:::
-
 L'application doit se lancer en mode dev `pnpm dev` comme en mode prod `pnpm serve`.
 
-2. L'équipe choisit d'ajouter un paramètre `dev` dans l'url afin de spécifier les modules à lancer en mode dev ie. `book`, `booklist`. L'objectif est d'avoir le module `Book` en mode dev sur l'application [http://localhost:4000?dev=book](http://localhost:4000?dev=book) avec tous les autres modules en mode prod.
+2. L'équipe choisit d'ajouter un paramètre `dev` dans l'url afin de spécifier les modules à lancer en mode dev ie. `book`, `booklist`. L'objectif est d'avoir le module `Book` ou `Booklist` ou les deux en mode dev sur l'application [http://localhost:4000](http://localhost:4000) avec tous les autres modules en mode prod.
 
 Vous n'avez qu'à modifier `resolveRemote` pour se faire. A vous de jouer!
 
