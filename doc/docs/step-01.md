@@ -101,7 +101,7 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 3. Modifiez l'import vers le composant `Booklist` dans le fichier `app/bookshelf/src/App.tsx`.  
    Typescript ne sera pas content, ajouter un `// @ts-ignore`, nous y reviendrons plus tard 😉
 
-### Vérifier que tout fonctionne
+#### Vérifier que tout fonctionne
 
 1. Jouez la commande `pnpm dev`, elle va lancer les scripts `dev` de `bookshelf` et `booklist`.
 1. Vérifiez que l'application fonctionne à l'adresse suivante : [http://localhost:3000](http://localhost:3000).  
