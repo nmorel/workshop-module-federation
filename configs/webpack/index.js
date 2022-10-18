@@ -125,11 +125,16 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
     overrideConfig
   )
 }
-exports.resolveRemote = ({key, url}) => {
+
+exports.resolveRemote = ({key, dev}) => {
   return `((resolve) => {
     const {host, search} = window.location
     const params = new URLSearchParams(search)
-    const remoteUrl = '${url}/remoteEntry.js'
+    const devs = (params.get('dev') || '').split(',').map(_ => _.trim())
+
+    // TODO : Use the list of modules in dev to compute the remoteUrl.
+    const remoteUrl = '${isProd ? `/remote/${key}` : dev}/remoteEntry.js'
+
     const script = document.createElement('script')
     script.src = remoteUrl
     script.onload = () => {
