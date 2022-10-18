@@ -102,9 +102,13 @@ L'équipe `Book` est jalouse! Elle est encore obligée de lancer toute l'applica
 
 :::info
 Vous pourrez configurer le router pour aller chercher un livre en fonction du slug de l'url :  
-`<Route path="/books/:slug" element={<Book />} />`.  
+```jsx
+<Route path="/books/:slug" element={<Book />} />
+```
 Vous pourrez charger un livre par défaut s'il y en aucun de spécifier avec :  
-`<MemoryRouter initialEntries={['/']}>`
+```jsx
+<MemoryRouter initialEntries={[`/books/${slug}`]}>
+```
 :::
 
 <Solution step="02" />
