@@ -24,9 +24,9 @@ Ouvrez les dev tools de votre navigateur sur l'onglet Network. Vous remarquerez 
 2. Si vous regardez vos dev tools, la version de `react` est la 18.1.0.  
    L'équipe `Booklist` a à coeur d'avoir ses dépendances à jour et décide de MaJ `react` à la version 18.2.0.
 
-Commencez par mettre à jour la version de `react` de l'app `Booklist` dans le package.json :
+Commencez par mettre à jour la version de `react` de l'app `Booklist` :
 
-```diff
+```diff title="apps/booklist/package.json"
    "dependencies": {
      "api": "workspace:*",
      "classnames": "^2.3.2",
@@ -41,16 +41,19 @@ Commencez par mettre à jour la version de `react` de l'app `Booklist` dans le p
    },
 ```
 
-L'équipe ne comprends pas le fonctionnement de l'option `shared`. Elle repart d'une configuration simple.
-Elle décide ensuite de MàJ les `requiredVersion` dans la configuration de MF dans `Booklist` :
+L'équipe ne comprends pas le fonctionnement de l'option `shared`. Elle repart d'une configuration simple en ne spécifiant que la `requiredVersion`.
 
-```js
-        'react': {
-          requiredVersion: '^18.2.0',
-        },
-        'react-dom': {
-          requiredVersion: '^18.2.0',
-        }
+MàJ les `requiredVersion` dans `Booklist` :
+
+```diff title="apps/booklist/webpack.config.js"
+    'react': {
+-      requiredVersion: '^18.1.0',
++      requiredVersion: '^18.2.0',
+    },
+    'react-dom': {
+-      requiredVersion: '^18.1.0',
++      requiredVersion: '^18.2.0',
+    }
 ```
 
 Installez à nouveau les dépendances via `pnpm i`. Exécutez à nouveau : `pnpm dev`
@@ -61,33 +64,37 @@ Depuis vos dev tools, vous remarquerez que c'est la version 18.2.0 qui n'est cha
 Module Federation utilise le `Semantic Versionning` pour récupérer la version compatible la plus à jour. Ici le Host `Bookshelf` enregistre dans le contexte partagé `react:18.1.0` alors que `Booklist` enregistre `react:18.2.0`. Sachant que la dépendence `react` est spécifié via `^18.1.0` dans les `shared`, elle est compatible avec une montée de patch vers la version `18.2.0`, c'est donc la version `18.2.0` de `Booklist` qui est utilisée.
 :::
 
-3. Fixez la version de `react` de manière strict dans la config de MF de `Bookshelf` :
+3. Fixez la version de `react` de manière strict dans `Bookshelf` :
 
-```js
-	'react': {
-          requiredVersion: '18.1.0',
-        },
-  'react-dom': {
-          requiredVersion: '18.1.0',
-        }
+```diff title="apps/bookshelf/webpack.config.js"
+    'react': {
+-      requiredVersion: '^18.1.0',
++      requiredVersion: '18.1.0',
+    },
+    'react-dom': {
+-      requiredVersion: '^18.1.0',
++      requiredVersion: '18.1.0',
+    }
 ```
 
 Relancez `pnpm dev`.
 
-Ouchh si vous ouvrez vos dev tools vous verrez 2 versions de react téléchargées.
+Ouchh si vous ouvrez vos dev tools vous verrez 2 versions de `react` téléchargées. 
 
 L'option `singleton` a la rescousse! Rajoutez la à la configuration de `Bookshelf` :
 
-```js
-        'react': {
-          singleton: true,
-          requiredVersion: '18.1.0',
-        },
-        'react-dom': {
-          singleton: true,
-          requiredVersion: '18.1.0',
-        },
+```diff title="apps/bookshelf/webpack.config.js"
+    'react': {
++     singleton: true,
+      requiredVersion: '18.1.0',
+    },
+    'react-dom': {
++     singleton: true,
+      requiredVersion: '18.1.0',
+    },
 ```
+
+On ne charge plus qu'une seule version de `react`.
 
 :::info
 L'option `singleton` utilise la version la plus élevée indépendamment du semantic versioning. Vous pouvez utiliser l'option `strictVersion` pour lancer une exception dès qu'il y a un mismatch de version.
@@ -95,12 +102,34 @@ L'option `singleton` utilise la version la plus élevée indépendamment du sema
 
 4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si nous voulons utiliser la version du Host quoiqu'il arrive nous pouvons utiliser la config suivante sur les remotes `Booklist` et `Book` :
 
-```js
-          'react': {
-            singleton: true,
-            requiredVersion: false,
-            version: '0',
-          },
+```diff title="apps/booklist/webpack.config.js"
+    'react': {
+-     requiredVersion: '^18.2.0',
++     singleton: true,
++     requiredVersion: false,
++     version: '0',
+    },
+    'react-dom': {
+-     requiredVersion: '^18.2.0',
++     singleton: true,
++     requiredVersion: false,
++     version: '0',
+  },
+```
+
+```diff title="apps/book/webpack.config.js"
+    'react': {
+-     requiredVersion: '^18.1.0',
++     singleton: true,
++     requiredVersion: false,
++     version: '0',
+    },
+    'react-dom': {
+-     requiredVersion: '^18.1.0',
++     singleton: true,
++     requiredVersion: false,
++     version: '0',
+  },
 ```
 
 En spécifiant `version: '0'`, ils utiliseront désormais la version de `react` du Host quoiqu'il arrive.
@@ -109,6 +138,23 @@ En spécifiant `version: '0'`, ils utiliseront désormais la version de `react` 
 
 Depuis l'onglet Network des dev tools, retrouvez le chargement du module `Booklist`. Vous y trouverez le chargement du package api ` ../../packages/api`. Bizarrement (ou pas) vous retrouvez ces mêmes fichiers chargés séparemment à la fois par le module `Book` et par le module `Booklist` qui l'utilisent tous les deux. Les équipes aimerait ne pas avoir à retélécharger le module une 2ème fois.
 
-1. MàJ les configs webpack de `Book` et `Booklist` pour ne charger qu'une seule fois le module `api`.
+1. MàJ les configs webpack de `Book` et `Booklist` pour ne charger qu'une seule fois le module `api` :
+
+```diff title="apps/booklist/webpack.config.js"
++   'api': {
++     singleton: true,
++     requiredVersion: false,
++   },
+```
+
+```diff title="apps/book/webpack.config.js"
++   'api': {
++     singleton: true,
++     requiredVersion: false,
++   },
+```
+
+2. Rejouez `pnpm dev`. Testez l'application en ouvrant les dev tools. `api` n'est chargé qu'une seule fois lorsque vous naviguez entre la page `Book` et la page `Booklist`
+
 
 <Solution step="03" />
