@@ -1,5 +1,5 @@
 {
   "buildCommand": "",
   "installCommand": "",
-  "outputDirectory": "doc/build"
+  "outputDirectory": "apps/bookshelf-bundle/dist"
 }
