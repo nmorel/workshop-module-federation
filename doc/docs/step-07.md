@@ -17,7 +17,7 @@ Vous cherchez à ne charger qu'un seul module en mode dev avec les autres module
 
 ## Concept
 
-Lancer votre application en mode dev : `pnpm dev`. 
+Lancer votre application en mode dev : `pnpm dev`.
 
 Allez sur la version déployée de l'application : [https://workshop-module-federation-app.vercel.app/?dev=book](https://workshop-module-federation-app.vercel.app/?dev=book) avec le paramètre suivant `dev=book`.
 
@@ -30,10 +30,11 @@ Changez l'année par l'auteur dans `BooklistItem` :
 
 Vos changements apparaissent sur [https://workshop-module-federation-app.vercel.app/?dev=book](https://workshop-module-federation-app.vercel.app/?dev=book) :astonished:
 
-*Quoi ??! Mais commment est-ce possible ?*
+_Quoi ??! Mais comment est-ce possible ?_
+
 ## Exercice
 
-**Charger un module dynamiquement.**
+#### Charger un module dynamiquement.
 
 1. Utilisez l'API `promise` pour définir les remotes ([doc](https://webpack.js.org/concepts/module-federation/#promise-based-dynamic-remotes))
 
@@ -44,7 +45,6 @@ Utilisez la doc webpack ([doc](https://webpack.js.org/concepts/module-federation
 :::info
 Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/webpack/index` que vous pouvez réutiliser.
 :::
-
 
 ```diff title="apps/bookshelf/webpack.config.js"
     remotes: {
@@ -73,7 +73,7 @@ Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/w
 
 L'application doit se lancer en mode dev `pnpm dev` comme en mode prod `pnpm serve`.
 
-2. L'équipe choisit d'ajouter un paramètre `dev` dans l'url afin de spécifier les modules à lancer en mode dev. L'objectif est d'avoir le module `Book` ou `Booklist` ou les deux en mode dev sur l'application [http://localhost:4000](http://localhost:4000) avec tous les autres modules en mode prod. (*eg.* [http://localhost:4000?dev=book](http://localhost:4000?dev=book) doit charger le module `Book` en mode dev)
+2. L'équipe choisit d'ajouter un paramètre `dev` dans l'url afin de spécifier les modules à lancer en mode dev. L'objectif est d'avoir le module `Book` ou `Booklist` ou les deux en mode dev sur l'application [http://localhost:4000](http://localhost:4000) avec tous les autres modules en mode prod. (_eg._ [http://localhost:4000?dev=book](http://localhost:4000?dev=book) doit charger le module `Book` en mode dev)
 
 Vous n'avez qu'à modifier `resolveRemote` pour se faire. A vous de jouer!
 
