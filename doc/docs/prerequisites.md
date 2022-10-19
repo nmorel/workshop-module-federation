@@ -27,31 +27,11 @@ pnpm i
 
 :::info
 
-Après avoir checkout une branche step-xx et lorsque vous modifiez des dépendances, rejouer cette commande pour bien mettre à jour les liens symboliques.  
-Si vous n'avez pas internet, ajouter le flag `--offline`, il n'y aura pas de nouveaux packages à télécharger pendant le workshop une fois l'installation initiale effectuée.
+Après avoir checkout une branche step-xx et lorsque vous modifiez des dépendances, rejouez la commande `pnpm i` pour bien mettre à jour les liens symboliques.  
+Si vous n'avez pas internet, vous pouvez ajouter le flag `--offline`, il ne devrait pas y avoir de nouveaux packages à télécharger (🤞) pendant le workshop une fois l'installation initiale effectuée.
 
 :::
 
-## Documentation
+import Commands from './partials/\_commands.mdx';
 
-Pour avoir une version de la documentation hors-ligne ([localhost:4080](http://localhost:4080)) :
-
-```bash
-pnpm doc:serve
-```
-
-## Développement
-
-Pour lancer l'application en mode dev ([localhost:3000](http://localhost:3000)) :
-
-```bash
-pnpm dev
-```
-
-## Prod
-
-Pour builder et lancer l'application en mode prod ([localhost:4000](http://localhost:4000)) :
-
-```bash
-pnpm serve
-```
+<Commands />
