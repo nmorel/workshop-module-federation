@@ -15,7 +15,7 @@ export function Booklist() {
       <ul className="flex flex-col">
         {booklist?.map((bookListItem, index) => (
           <li key={bookListItem.slug}>
-            <BooklistItem book={bookListItem} highlighted={index % 2 === 0} />
+            <BooklistItem book={bookListItem} index={index} />
           </li>
         ))}
       </ul>
