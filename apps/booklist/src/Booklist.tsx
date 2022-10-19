@@ -13,10 +13,10 @@ export function Booklist() {
   return (
     <>
       <h1 className="underline text-2xl my-4">Livres</h1>
-      <ul className="flex flex-col gap-2">
-        {booklist?.map((bookListItem, index) => (
+      <ul className="flex flex-col">
+        {booklist?.map((bookListItem) => (
           <li key={bookListItem.slug}>
-            <BooklistItem item={bookListItem} className={index % 2 === 0 ? 'bg-slate-100' : ''} />
+            <BooklistItem item={bookListItem} className="hover:underline" />
           </li>
         ))}
       </ul>
