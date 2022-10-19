@@ -70,9 +70,9 @@ N'oubliez de spécifier la dépendance `css` :
 
 ```diff title="packages/booklist/package.json"
   "dependencies": {
-  "api": "workspace:*",
-  "classnames": "^2.3.2",
-+ "css": "workspace:*",
+    "api": "workspace:*",
+    "classnames": "^2.3.2",
++   "css": "workspace:*",
 ```
 
 Réinstallez les dépendences via `pnpm i`
