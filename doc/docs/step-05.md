@@ -23,7 +23,7 @@ Malheureusement, personne ne s'aperçoit que l'application ne tourne plus 😱.
 
 ## Exercice
 
-**Modifier la configuration Typescript pour avoir le bon typage dans `apps/booklist/src/Booklist.tsx`.**
+#### Modifier la configuration Typescript pour avoir le bon typage dans `apps/booklist/src/Booklist.tsx`.
 
 Pour cela, nous allons utiliser le [path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) et les [project references](https://www.typescriptlang.org/docs/handbook/project-references.html#what-is-a-project-reference).
 
@@ -73,18 +73,18 @@ Pour cela, nous allons utiliser le [path mapping](https://www.typescriptlang.org
 
 ## Bonus 01
 
-**Modifier la configuration Typescript pour avoir le bon typage dans `apps/bookshelf/src/App`.**
+#### Modifier la configuration Typescript pour avoir le bon typage dans `apps/bookshelf/src/App`.
 
 ## Bonus 02
 
-**Faire fonctionner le script `pnpm tscheck`.**
+#### Faire fonctionner le script `pnpm tscheck`.
 
 Avec les [project references](https://www.typescriptlang.org/docs/handbook/project-references.html#what-is-a-project-reference), `tsc` s'attend maintenant à avoir des fichiers de définitions .d.ts sur chacun de nos packages.  
 Modifiez les scripts `tscheck` pour _emit_ les fichiers de définitions.
 
 ## Bonus 03
 
-**Essayer le [plugin officiel](https://github.com/module-federation/nextjs-mf/tree/main/packages/typescript).**
+#### Essayer le [plugin officiel](https://github.com/module-federation/nextjs-mf/tree/main/packages/typescript).
 
 Nous avons trouvé [la solution en pur TS](https://github.com/module-federation/module-federation-examples/tree/931ea0e5776d1b1f2c68217d9681e5912cda19ec/typescript-project-references) plus simple et plus adaptée à cet exemple mais vous pouvez essayer le plugin pour vous faire votre propre avis 😉.
 

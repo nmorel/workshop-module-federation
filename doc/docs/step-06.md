@@ -17,7 +17,7 @@ En effet, `Bookshelf` cherche à télécharger les `remoteEntry.js` de `Booklist
 
 ## Exercice
 
-**Générer un bundle pouvant être déployer n'importe où.**
+#### Générer un bundle pouvant être déployer n'importe où.
 
 Pour simplifier l'exercice et éviter d'avoir à configurer un nginx ou autre, nous allons créer un bundle contenant notre _host_ et nos deux _remote_ sous une même arborescence.
 Ce bundle sera déployable sur n'importe quel serveur de fichier.
@@ -112,6 +112,6 @@ pnpm serve
 
 ## Bonus
 
-**Rendre le script plus générique et éviter d'avoir tous les chemins en dur.**
+#### Rendre le script plus générique et éviter d'avoir tous les chemins en dur.
 
 <Solution step="06" />
