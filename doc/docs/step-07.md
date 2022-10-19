@@ -15,6 +15,22 @@ Vous faites partie de l'équipe `Book` et vous êtes bien embêté!
 Il y a un bug sur l'application qui ne se produit qu'en lançant l'intégralité de `Bookshelf` et pas en standalone sur `Book`. Vous devez donc tout lancer en mode dev mais votre machine est trop lente pour supporter 3 dev server webpack 🥺.
 Vous cherchez à ne charger qu'un seul module en mode dev avec les autres modules déjà compilé pour soulager votre machine.
 
+## Concept
+
+Lancer votre application en mode dev : `pnpm dev`. 
+
+Allez sur la version déployée de l'application : [https://workshop-module-federation-app.vercel.app/?dev=book](https://workshop-module-federation-app.vercel.app/?dev=book) avec le paramètre suivant `dev=book`.
+
+Changez l'année par l'auteur dans `BooklistItem` :
+
+```diff title="apps/book/src/BooklistItem"
+-   <span className="italic text-slate-500">{book.year}</span>
++   <span className="italic text-slate-500">{book.author}</span>
+```
+
+Vos changements apparaissent sur [https://workshop-module-federation-app.vercel.app/?dev=book](https://workshop-module-federation-app.vercel.app/?dev=book) :astonished:
+
+*Quoi ??! Mais commment est-ce possible ?*
 ## Exercice
 
 **Charger un module dynamiquement.**
@@ -63,10 +79,10 @@ Vous n'avez qu'à modifier `resolveRemote` pour se faire. A vous de jouer!
 
 ## Bonus
 
-Faire en sorte qu'en mode dev :
+Faire en sorte qu'avec `Bookshelf` en mode dev ([http://localhost:3000](http://localhost:3000)) :
 
 - Tout soit chargé par défaut depuis les bundlers de dev.
-- On ne puisse avoir que le Host `Bookshelf` en mode dev.
+- On ne puisse avoir que `Bookshelf` en mode dev et les autres modules en mode prod.
 - Choisir `http://localhost:4000` comme étant la production par défaut du mode dev. (On peut choisir n'importe quelle version déployée)
 
 <Solution step="07" />
