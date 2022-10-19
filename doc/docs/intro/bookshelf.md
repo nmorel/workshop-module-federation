@@ -4,11 +4,14 @@ sidebar_position: 2
 
 # Bookshelf
 
+![Bookshelf](./bookshelf_step_00.png)
+
 ## Description
 
 L'application `Bookshelf` liste les romans de Jules Verne et fournit une vue détaillée de chaque roman.  
-Le projet est organisé en [monorepo](https://monorepo.tools/). Il utilise [pnpm](https://pnpm.io/), son gestionnaire de [workspace](https://pnpm.io/workspaces) et [Turborepo](https://turborepo.org/).  
-Le frontend est développé avec [React](https://reactjs.org/) et [Tailwind](https://tailwindcss.com/). Pour simplifier l'atelier, il n'y a pas de backend, juste des données en dur.
+Le projet est organisé en [monorepo](https://monorepo.tools/). Il utilise [pnpm](https://pnpm.io/) et ses [workspaces](https://pnpm.io/workspaces) ainsi que [Turborepo](https://turborepo.org/).  
+Le frontend est développé avec [React](https://reactjs.org/) et [Tailwind](https://tailwindcss.com/).  
+Pour simplifier l'atelier, il n'y a pas de backend, toutes les données sont en dur.
 
 ## Structure
 
@@ -27,6 +30,13 @@ Le frontend est développé avec [React](https://reactjs.org/) et [Tailwind](htt
 - `packages/book/src/Book.tsx` : Vue détail d'un livre
 
 ## Commandes
+
+:::info
+
+Sauf indication contraire, toutes les commandes sont à exécuter à la racine du projet.  
+Les scripts pnpm et les pipelines Turborepo sont déjà configurés pour vous.
+
+:::
 
 ### Documentation
 

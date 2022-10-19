@@ -9,6 +9,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    liveReload: true,
+    hot: false,
     port: 3030,
   },
   output: {
@@ -35,11 +37,11 @@ module.exports = {
       shared: {
         'react': {
           singleton: true,
-          requiredVersion: '18.2.0',
+          requiredVersion: '18.1.0',
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: '18.2.0',
+          requiredVersion: '18.1.0',
         },
       },
     }),
@@ -51,7 +53,7 @@ module.exports = {
             <meta charset="utf-8" />
             <title>Host</title>
         </head>
-        <body>
+        <body style="background-color: lightblue;">
             <div id="root"></div>
         </body>
         </html>
