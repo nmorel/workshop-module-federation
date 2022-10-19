@@ -19,5 +19,3 @@ export function BooklistItem({book, highlighted}: {book: Bookshelf.Book; highlig
     </button>
   )
 }
-
-export default BooklistItem
