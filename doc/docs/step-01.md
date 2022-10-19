@@ -84,7 +84,7 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 :::
 
 3. Configurez le plugin Module Federation dans le fichier `packages/booklist/webpack.config.js` en remplaçant les TODO.  
-   `booklist` est un `remote` module qui doit exposer le composant `Booklist`.  
+   `booklist` est un _remote_ module qui doit exposer le composant `Booklist`.  
    Aidez-vous de l'exemple situé [ici](./intro/module-federation.md/#signification-des-param%C3%A8tres).
 
 #### Dans `apps/bookshelf` :
@@ -106,7 +106,7 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 ```
 
 2. Configurez le plugin Module Federation dans le fichier `apps/bookshelf/webpack.config.js` en remplaçant les TODO.  
-   Il s'agit du `host` qui va utiliser le `remote` module `booklist`.  
+   Il s'agit du _host_ qui va utiliser le _remote_ module `booklist`.  
    Aidez-vous de l'exemple situé [ici](./intro/module-federation.md/#signification-des-param%C3%A8tres).
 
 3. Modifiez l'import vers le composant `Booklist` dans le fichier `app/bookshelf/src/App.tsx`.  
