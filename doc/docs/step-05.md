@@ -53,9 +53,9 @@ Pour cela, nous allons utiliser le [path mapping](https://www.typescriptlang.org
      "declaration": true,
 ```
 
-3. Redémarrez le serveur Typescript de votre VSCode.  
-   `Cmd/Ctrl + Shift + P` => `Typescript: Restart TS Server`.
-   Vous devriez maintenant voir les soucis sur l'utilisation de `BooklistItem`.
+3. Ouvrez le fichier `apps/booklist/src/Booklist.tsx` et redémarrez le serveur Typescript de votre VSCode avec :  
+   `Cmd/Ctrl + Shift + P` => `Typescript: Restart TS Server`.  
+   Vous devriez maintenant voir apparaitre les soucis sur l'utilisation de `BooklistItem`.
 
 4. Corrigez les erreurs dans `apps/booklist/src/Booklist.tsx`.
 
