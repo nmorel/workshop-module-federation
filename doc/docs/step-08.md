@@ -35,6 +35,8 @@ Mais maintenant la compilation avec `babel` montre ses limites et prend beaucoup
 2. Remplacer le loader `babel` par le loader `esbuild`.
 
 ```diff title="apps/booklist/webpack.config.js"
+   devServer: {
+     port: 3001,
    },
 +  module: {
 +    rules: [
@@ -71,6 +73,8 @@ Mais maintenant la compilation avec `babel` montre ses limites et prend beaucoup
 2. Remplacer le loader `babel` par le loader `swc`.
 
 ```diff title="apps/booklist/webpack.config.js"
+   devServer: {
+     port: 3001,
    },
 +  module: {
 +    rules: [
