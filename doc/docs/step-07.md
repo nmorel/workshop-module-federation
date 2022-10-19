@@ -17,13 +17,17 @@ Vous cherchez à ne charger qu'un seul module en mode dev avec les autres module
 
 ## Concept
 
-Lancer votre application en mode dev : `pnpm dev`.
+Lancer votre application `Book` en mode dev :
+
+```bash
+pnpm run -F book dev
+```
 
 Allez sur la version déployée de l'application : [https://workshop-module-federation-app.vercel.app/?dev=book](https://workshop-module-federation-app.vercel.app/?dev=book) avec le paramètre suivant `dev=book`.
 
-Changez l'année par l'auteur dans `BooklistItem` :
+Changez l'année par l'auteur dans `apps/book/src/BooklistItem.tsx` :
 
-```diff title="apps/book/src/BooklistItem"
+```diff title="apps/book/src/BooklistItem.tsx"
 -   <span className="italic text-slate-500">{book.year}</span>
 +   <span className="italic text-slate-500">{book.author}</span>
 ```
@@ -36,14 +40,13 @@ _Quoi ??! Mais comment est-ce possible ?_
 
 #### Charger un module dynamiquement.
 
-1. Utilisez l'API `promise` pour définir les remotes ([doc](https://webpack.js.org/concepts/module-federation/#promise-based-dynamic-remotes))
+1. Utilisez l'API `promise` pour définir les urls des _remotes_ dynamiquement ([doc](https://webpack.js.org/concepts/module-federation/#promise-based-dynamic-remotes)).
 
-Jusqu'à présent, les urls des remotes étaient en dur.
-
-Utilisez la doc webpack ([doc](https://webpack.js.org/concepts/module-federation/#promise-based-dynamic-remotes)) pour charger les remotes de `Bookshelf` et `Booklist` via l'api `promise` :
+Jusqu'à présent, les urls des remotes étaient configurées en dur dans notre configuration Webpack.  
+Nous avions juste un switch pour tout avoir en localhost ou tout servi via `/remote/xxx`.
 
 :::info
-Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/webpack/index` que vous pouvez réutiliser.
+Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/webpack/index` que vous pouvez utiliser plutôt que de copier/coller depuis la [documentation](https://webpack.js.org/concepts/module-federation/#promise-based-dynamic-remotes).
 :::
 
 ```diff title="apps/bookshelf/webpack.config.js"
@@ -53,11 +56,11 @@ Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/w
 +      booklist: resolveRemote({
 +        key: 'booklist',
 +        dev: 'http://localhost:3001',
-+      })
++      }),
 +      book: resolveRemote({
 +        key: 'book',
 +        dev: 'http://localhost:3002',
-+      })
++      }),
     },
 ```
 
@@ -67,7 +70,7 @@ Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/w
 +      book: resolveRemote({
 +        key: 'book',
 +        dev: 'http://localhost:3002',
-+      })
++      }),
     },
 ```
 
