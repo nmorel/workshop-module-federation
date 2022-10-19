@@ -122,14 +122,14 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 
 ## Bonus 01
 
-**Charger le composant `Book` via Module Federation.**
+#### Charger le composant `Book` via Module Federation.
 
 ## Bonus 02
 
-**Charger les composants `Booklist` et `Book` en asynchrone (hint: `React.lazy`).**
+#### Charger les composants `Booklist` et `Book` en asynchrone (hint: `React.lazy`).
 
 ## Bonus 03
 
-**Récupérer les versions des librairies shared depuis le package.json.**
+#### Récupérer les versions des librairies shared depuis le package.json.
 
 <Solution step="01" />
