@@ -21,6 +21,10 @@ Comment gérer les versions des paquets partagés via l'option `shared` ? Vous a
 
 Ouvrez les dev tools de votre navigateur sur l'onglet Network. Vous remarquerez que vos dépendances partagées (`react`, `react-dom`, `react-query` et `react-dom-router`) ne sont chargées qu'une seule fois depuis le Host ([localhost:3000](http://localhost:3000)). Les autres modules les réutilisent!
 
+:::info
+A chaque modification de la configuration Webpack, il vous faudra relancer `pnpm dev` pour qu'elle soit prise en compte.
+:::
+
 2. Si vous regardez vos dev tools, la version de `react` est la 18.1.0.  
    L'équipe `Booklist` a à coeur d'avoir ses dépendances à jour et décide de MaJ `react` à la version 18.2.0.
 
@@ -41,6 +45,8 @@ Commencez par mettre à jour la version de `react` de l'app `Booklist` :
    },
 ```
 
+Installez à nouveau les dépendances : `pnpm i`. 
+
 L'équipe ne comprends pas le fonctionnement de l'option `shared`. Elle repart d'une configuration simple en ne spécifiant que la `requiredVersion`.
 
 MàJ les `requiredVersion` dans `Booklist` :
@@ -56,7 +62,7 @@ MàJ les `requiredVersion` dans `Booklist` :
     }
 ```
 
-Installez à nouveau les dépendances via `pnpm i`. Exécutez à nouveau : `pnpm dev`
+Exécutez à nouveau : `pnpm dev`
 
 Depuis vos dev tools, vous remarquerez que c'est la version 18.2.0 qui n'est chargée qu'une seule fois encore mais depuis le remote `Booklist` ([localhost:3001](http://localhost:3001)).
 
