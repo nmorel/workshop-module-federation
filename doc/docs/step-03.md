@@ -27,7 +27,7 @@ pnpm dev
 A chaque modification de la configuration Webpack, il vous faudra relancer `pnpm dev` pour qu'elle soit prise en compte.
 :::
 
-Ouvrez les devtools de votre navigateur sur l'onglet Network. Vous remarquerez que vos dépendances partagées (`react`, `react-dom`, `react-query` et `react-dom-router`) ne sont chargées qu'une seule fois depuis le `host` ([localhost:3000](http://localhost:3000)). Les autres modules les réutilisent!
+Ouvrez les devtools de votre navigateur sur l'onglet Network. Vous remarquerez que vos dépendances partagées (`react`, `react-dom`, `react-query` et `react-dom-router`) ne sont chargées qu'une seule fois depuis le _host_ ([localhost:3000](http://localhost:3000)). Les autres modules les réutilisent!
 
 2. Si vous regardez vos devtools, la version de `react` est la 18.1.0.  
    L'équipe `Booklist` a à coeur d'avoir ses dépendances à jour et décide de mettre à jour `react` à la version 18.2.0.
@@ -111,7 +111,7 @@ On ne charge plus qu'une seule version de `react`.
 L'option `singleton` utilise la version la plus élevée indépendamment du semantic versioning. Vous pouvez utiliser l'option `strictVersion` pour lancer une exception dès qu'il y a un mismatch de version.
 :::
 
-4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si nous voulons utiliser la version du `host` quoiqu'il arrive nous pouvons utiliser la configuration suivante sur les remotes `Booklist` et `Book` :
+4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si nous voulons utiliser la version du _host_ quoiqu'il arrive nous pouvons utiliser la configuration suivante sur les remotes `Booklist` et `Book` :
 
 ```diff title="apps/booklist/webpack.config.js"
     'react': {
@@ -143,7 +143,7 @@ L'option `singleton` utilise la version la plus élevée indépendamment du sema
   },
 ```
 
-En spécifiant `version: '0'`, ils utiliseront désormais la version de `react` du `host` quoiqu'il arrive.
+En spécifiant `version: '0'`, ils utiliseront désormais la version de `react` du _host_ quoiqu'il arrive.
 
 #### Partager le module `api` entre `Book` et `Booklist`
 
