@@ -17,9 +17,9 @@ En effet, `Bookshelf` cherche à télécharger les `remoteEntry.js` de `Booklist
 
 ## Exercice
 
-**Générer un bundle pouvant être déployer n'importe où.**
+#### Générer un bundle pouvant être déployer n'importe où.
 
-Pour simplifier l'exercice et éviter d'avoir à configurer un nginx ou autre, nous allons créer un bundle contenant notre _host_ et nos deux _remote_ app sous une même arborescence.
+Pour simplifier l'exercice et éviter d'avoir à configurer un nginx ou autre, nous allons créer un bundle contenant notre _host_ et nos deux _remote_ sous une même arborescence.
 Ce bundle sera déployable sur n'importe quel serveur de fichier.
 
 L'arborescence sera la suivante :
@@ -72,8 +72,37 @@ Il vous reste donc à modifier la configuration.
    },
 ```
 
-3. MàJ la configuration du plugin Module Federation pour remplacer les urls vers `//localhost` par `/remote/xxx`.  
-   (Bonus) Utilisez la variable d'environnement `NODE_ENV` pour différencier la production du dev et ainsi conserver `//localhost` en dev.
+3. Mettez à jour la configuration du plugin Module Federation pour utiliser les urls `/remote/xxx` en production.
+
+```diff title="apps/booklist/webpack.config.js"
+-const {createConfig} = require('webpack-config')
++const {createConfig, isProd} = require('webpack-config')
+
+ // ...
+
+       },
+       remotes: {
+-        book: 'book@//localhost:3002/remoteEntry.js',
++        book: `book@${isProd ? '/remote/book' : '//localhost:3002'}/remoteEntry.js`,
+       },
+       shared: {
+```
+
+```diff title="apps/bookshelf/webpack.config.js"
+-const {createConfig} = require('webpack-config')
++const {createConfig, isProd} = require('webpack-config')
+
+ // ...
+
+       name: 'bookshelf',
+       remotes: {
+-        booklist: 'booklist@//localhost:3001/remoteEntry.js',
+-        book: 'book@//localhost:3002/remoteEntry.js',
++        booklist: `booklist@${isProd ? '/remote/booklist' : '//localhost:3001'}/remoteEntry.js`,
++        book: `book@${isProd ? '/remote/book' : '//localhost:3002'}/remoteEntry.js`,
+       },
+       shared: {
+```
 
 4. Vérifiez que vos modifications fonctionnent en lançant le script `serve`.
 
@@ -83,6 +112,6 @@ pnpm serve
 
 ## Bonus
 
-**Rendre le script plus générique et éviter d'avoir tous les chemins en dur.**
+#### Rendre le script plus générique et éviter d'avoir tous les chemins en dur.
 
 <Solution step="06" />
