@@ -17,16 +17,20 @@ Comment gérer les versions des paquets partagés via l'option `shared` ? Vous a
 
 #### Mise à jour de `react`
 
-1. Lancez le script `dev` : `pnpm dev`
+1. Lancez le script `dev` :
 
-Ouvrez les dev tools de votre navigateur sur l'onglet Network. Vous remarquerez que vos dépendances partagées (`react`, `react-dom`, `react-query` et `react-dom-router`) ne sont chargées qu'une seule fois depuis le Host ([localhost:3000](http://localhost:3000)). Les autres modules les réutilisent!
+```bash
+pnpm dev
+```
 
 :::info
 A chaque modification de la configuration Webpack, il vous faudra relancer `pnpm dev` pour qu'elle soit prise en compte.
 :::
 
-2. Si vous regardez vos dev tools, la version de `react` est la 18.1.0.  
-   L'équipe `Booklist` a à coeur d'avoir ses dépendances à jour et décide de MaJ `react` à la version 18.2.0.
+Ouvrez les devtools de votre navigateur sur l'onglet Network. Vous remarquerez que vos dépendances partagées (`react`, `react-dom`, `react-query` et `react-dom-router`) ne sont chargées qu'une seule fois depuis le `host` ([localhost:3000](http://localhost:3000)). Les autres modules les réutilisent!
+
+2. Si vous regardez vos devtools, la version de `react` est la 18.1.0.  
+   L'équipe `Booklist` a à coeur d'avoir ses dépendances à jour et décide de mettre à jour `react` à la version 18.2.0.
 
 Commencez par mettre à jour la version de `react` de l'app `Booklist` :
 
@@ -47,9 +51,10 @@ Commencez par mettre à jour la version de `react` de l'app `Booklist` :
 
 Installez à nouveau les dépendances : `pnpm i`.
 
-L'équipe ne comprends pas le fonctionnement de l'option `shared`. Elle repart d'une configuration simple en ne spécifiant que la `requiredVersion`.
+L'équipe ne comprends pas encore le fonctionnement de l'option `shared`.  
+Elle repart d'une configuration simple en ne spécifiant que la `requiredVersion`.
 
-MàJ les `requiredVersion` dans `Booklist` :
+Mettez à jour les `requiredVersion` dans `Booklist` :
 
 ```diff title="apps/booklist/webpack.config.js"
     'react': {
@@ -64,7 +69,7 @@ MàJ les `requiredVersion` dans `Booklist` :
 
 Exécutez à nouveau : `pnpm dev`
 
-Depuis vos dev tools, vous remarquerez que c'est la version 18.2.0 qui n'est chargée qu'une seule fois encore mais depuis le remote `Booklist` ([localhost:3001](http://localhost:3001)).
+Depuis vos devtools, vous remarquerez que c'est toujours la version 18.2.0 qui est chargée mais depuis le remote `Booklist` ([localhost:3001](http://localhost:3001)) cette fois-ci.
 
 :::info
 Module Federation utilise le `Semantic Versionning` pour récupérer la version compatible la plus à jour. Ici le Host `Bookshelf` enregistre dans le contexte partagé `react:18.1.0` alors que `Booklist` enregistre `react:18.2.0`. Sachant que la dépendance `react` est spécifié via `^18.1.0` dans les `shared`, elle est compatible avec une montée de patch vers la version `18.2.0`, c'est donc la version `18.2.0` de `Booklist` qui est utilisée.
@@ -85,9 +90,9 @@ Module Federation utilise le `Semantic Versionning` pour récupérer la version 
 
 Relancez `pnpm dev`.
 
-Ouchh si vous ouvrez vos dev tools vous verrez 2 versions de `react` téléchargées.
+Ouchh si vous ouvrez vos devtools vous verrez 2 versions de `react` téléchargées.
 
-L'option `singleton` a la rescousse! Rajoutez la à la configuration de `Bookshelf` :
+L'option `singleton` à la rescousse! Rajoutez la à la configuration de `Bookshelf` :
 
 ```diff title="apps/bookshelf/webpack.config.js"
     'react': {
@@ -106,7 +111,7 @@ On ne charge plus qu'une seule version de `react`.
 L'option `singleton` utilise la version la plus élevée indépendamment du semantic versioning. Vous pouvez utiliser l'option `strictVersion` pour lancer une exception dès qu'il y a un mismatch de version.
 :::
 
-4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si nous voulons utiliser la version du Host quoiqu'il arrive nous pouvons utiliser la configuration suivante sur les remotes `Booklist` et `Book` :
+4. `react` est chargé depuis le remote `Booklist`([localhost:3001](http://localhost:3001)). Si nous voulons utiliser la version du `host` quoiqu'il arrive nous pouvons utiliser la configuration suivante sur les remotes `Booklist` et `Book` :
 
 ```diff title="apps/booklist/webpack.config.js"
     'react': {
@@ -138,13 +143,13 @@ L'option `singleton` utilise la version la plus élevée indépendamment du sema
   },
 ```
 
-En spécifiant `version: '0'`, ils utiliseront désormais la version de `react` du Host quoiqu'il arrive.
+En spécifiant `version: '0'`, ils utiliseront désormais la version de `react` du `host` quoiqu'il arrive.
 
 #### Partager le module `api` entre `Book` et `Booklist`
 
-Depuis l'onglet Network des dev tools, retrouvez le chargement du module `Booklist`. Vous y trouverez le chargement du package api ` ../../packages/api`. Bizarrement (ou pas) vous retrouvez ces mêmes fichiers chargés séparemment à la fois par le module `Book` et par le module `Booklist` qui l'utilisent tous les deux. Les équipes aimerait ne pas avoir à retélécharger le module une 2ème fois.
+Depuis l'onglet Network des devtools, retrouvez le chargement du module `Booklist`. Vous y trouverez le chargement du package api ` ../../packages/api`. Bizarrement (ou pas) vous retrouvez ces mêmes fichiers chargés séparément à la fois par le module `Book` et par le module `Booklist` qui l'utilisent tous les deux. Les équipes aimeraient ne pas avoir à re-télécharger le module une 2nde fois.
 
-1. Mettez à jour les configs webpack de `Book` et `Booklist` pour ne charger qu'une seule fois le module `api` :
+1. Mettez à jour les configurations Webpack de `Book` et `Booklist` pour ne charger qu'une seule fois le module `api` :
 
 ```diff title="apps/booklist/webpack.config.js"
 +   'api': {
@@ -160,6 +165,8 @@ Depuis l'onglet Network des dev tools, retrouvez le chargement du module `Bookli
 +   },
 ```
 
-2. Rejouez `pnpm dev`. Testez l'application en ouvrant les dev tools. `api` n'est chargé qu'une seule fois lorsque vous naviguez entre la page `Book` et la page `Booklist`
+2. Rejouez `pnpm dev`.  
+   Testez l'application en ouvrant les devtools.  
+   `api` n'est chargé qu'une seule fois lorsque vous naviguez entre la page `Book` et la page `Booklist`.
 
 <Solution step="03" />
