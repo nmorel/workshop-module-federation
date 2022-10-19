@@ -17,5 +17,3 @@ export function BooklistItem({item, className = ''}: {item: Bookshelf.Book; clas
     </button>
   )
 }
-
-export default BooklistItem
