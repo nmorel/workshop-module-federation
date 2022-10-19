@@ -110,6 +110,10 @@ Il vous reste donc à modifier la configuration.
 pnpm serve
 ```
 
+Les scripts `build` seront automatiquement exécutés grâce à notre configuration Turborepo.  
+Rendez vous sur [localhost:4000](http://localhost:4000).  
+Jetez un oeil sur le chargement des fichiers dans l'onglet Network de vos devtools.
+
 ## Bonus
 
 #### Rendre le script plus générique et éviter d'avoir tous les chemins en dur.
