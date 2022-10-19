@@ -10,9 +10,17 @@ sidebar_position: 1
 
 ## Module Federation
 
-https://webpack.js.org/concepts/module-federation/  
-Principal développeur : https://twitter.com/ScriptedAlchemy  
-TODO
+Crée par [Zack Jackson](https://twitter.com/ScriptedAlchemy) et sorti avec [Webpack 5](https://webpack.js.org/blog/2020-10-10-webpack-5-release/#module-federation), [Module Federation](https://webpack.js.org/concepts/module-federation) est une solution permettant de charger et de partager des modules Javascript buildés indépendamment.
+
+Nous parlerons souvent de `host` et de `remote` modules :
+
+- un `remote` est un module Javascript qui sera chargé dynamiquement par notre application.  
+  Il est buildé indépendamment de l'application qui le charge.
+  Il peut exposer des composants, des fonctions, etc.. n'importe quel élément `export`able.
+- un `host` est notre application principale, celle qui va charger les `remote` modules.
+
+Nous verrons également la notion de `shared`.  
+Ce sont des packages que le `host` et les `remotes` peuvent déclarer pour éviter de les inclure dans chaque module et de les charger plusieurs fois.
 
 ## Exemple
 
@@ -20,10 +28,13 @@ Vous trouverez dans le répertoire `example` un exemple d'utilisation de Module 
 Vous pouvez le lancer et aller sur l'url [localhost:3030](http://localhost:3030).
 
 ```bash
-cd example
-pnpm i
-pnpm dev
+(cd example && pnpm i)
+(cd example && pnpm dev)
 ```
+
+Dans cet exemple, nous avons notre `host` en fond bleu qui est chargé depuis localhost:3030.  
+Il charge un `remote` module depuis localhost:3031 et affiche son composant exposé (fond jaune).  
+Les librairies `react` et `react-dom` sont des `shared`.
 
 ![Module federation](./example.png)
 
