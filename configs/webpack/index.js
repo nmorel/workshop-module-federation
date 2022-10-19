@@ -132,7 +132,7 @@ exports.resolveRemote = ({key, dev}) => {
   return `promise new Promise((resolve) => {
     const {host, search} = window.location
     const params = (new URLSearchParams(search)).get('dev')
-    const devs = params ? params.split(',').filter(Boolean).map(_ => _.trim()) : []
+    const devs = params ? params.split(',').map(_ => _.trim()) : []
 
     let remoteUrl
 
