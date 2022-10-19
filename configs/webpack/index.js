@@ -40,7 +40,7 @@ exports.createConfig = (label = 'App', overrideConfig = {}) => {
         liveReload: true,
         hot: false,
         historyApiFallback: true,
-        allowedHosts: ['workshop-module-federation.vercel.app'],
+        allowedHosts: ['workshop-module-federation-app.vercel.app'],
         client: {
           webSocketURL: {
             hostname: 'localhost',
