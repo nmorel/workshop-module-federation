@@ -29,35 +29,6 @@ Pour simplifier l'atelier, il n'y a pas de backend, toutes les données sont en 
 - `packages/booklist/src/Booklist.tsx` : Vue liste
 - `packages/book/src/Book.tsx` : Vue détail d'un livre
 
-## Commandes
+import Commands from '../partials/\_commands.mdx';
 
-:::info
-
-Sauf indication contraire, toutes les commandes sont à exécuter à la racine du projet.  
-Les scripts pnpm et les pipelines Turborepo sont déjà configurés pour vous.
-
-:::
-
-### Documentation
-
-Pour avoir une version de la documentation hors-ligne ([localhost:4080](http://localhost:4080)) :
-
-```bash
-pnpm doc:serve
-```
-
-### Développement
-
-Pour lancer l'application en mode dev ([localhost:3000](http://localhost:3000)) :
-
-```bash
-pnpm dev
-```
-
-### Prod
-
-Pour builder et lancer l'application en mode prod ([localhost:4000](http://localhost:4000)) :
-
-```bash
-pnpm serve
-```
+<Commands />
