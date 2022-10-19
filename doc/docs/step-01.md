@@ -11,8 +11,8 @@ import Solution from './partials/\_solution.mdx';
 
 ## Description
 
-L'application de `Bookshelf` grossit. 2 équipes travaillent désormais sur le projet, une pour la vue liste et une pour la vue de détails d'un roman.  
-Pour augmenter l'autonomie et la productivité de ces équipes, nous allons utiliser Module Federation.
+L'application de `Bookshelf` grossit et nous avons désormais 2 équipes travaillant sur le projet, une pour la vue liste et une pour la vue de détails d'un roman.  
+Pour augmenter l'autonomie et la productivité de ces équipes, nous allons mettre en place Module Federation.
 
 ## Exercice
 
@@ -20,7 +20,7 @@ Pour augmenter l'autonomie et la productivité de ces équipes, nous allons util
 
 #### Dans `packages/booklist` :
 
-1. Ajoutez le script `dev` et les devDependencies pour webpack dans le `package.json`
+1. Ajoutez le script `dev` dans le `package.json`. Nous avons déjà ajouté les devDependencies pour webpack.
 
 ```diff title="packages/booklist/package.json"
    "scripts": {
@@ -28,21 +28,7 @@ Pour augmenter l'autonomie et la productivité de ces équipes, nous allons util
      "lint": "eslint src/",
      "tscheck": "tsc --noEmit"
    },
-   "devDependencies": {
-     "@types/react": "18.0.21",
-     "@types/react-dom": "^18.0.6",
-     "eslint": "8.25.0",
-     "tsconfig": "workspace:*",
--    "typescript": "^4.8.4"
-+    "typescript": "^4.8.4",
-+    "webpack": "^5.74.0",
-+    "webpack-cli": "^4.10.0",
-+    "webpack-config": "workspace:*",
-+    "webpack-dev-server": "^4.11.1"
-   }
 ```
-
-Installez les dépendances : `pnpm i`
 
 2. Créez un fichier `webpack.config.js`.
 
@@ -51,16 +37,39 @@ const {createConfig} = require('webpack-config')
 
 module.exports = createConfig('Booklist', {
   output: {
-    // 'auto' so resources are loaded from the correct location
-    // see https://webpack.js.org/concepts/module-federation/#infer-publicpath-from-script
+    // Voir https://webpack.js.org/concepts/module-federation/#infer-publicpath-from-script
     publicPath: 'auto',
   },
   devServer: {
-    // use a different port than Bookshelf to be able to launch all the dev server in parallel
+    // Nous utilisons un port différent que Bookshelf afin de lancer tous les serveurs de dev en parallèle
     port: 3001,
   },
   plugins: [
-    // Add Module Federation plugin configuration here
+    new ModuleFederationPlugin({
+      name: 'TODO',
+      filename: 'TODO',
+      exposes: {
+        TODO: 'TODO',
+      },
+      shared: {
+        'react': {
+          singleton: true,
+          requiredVersion: '18.1.0',
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: '18.1.0',
+        },
+        'react-router-dom': {
+          singleton: true,
+          requiredVersion: '^6.4.2',
+        },
+        'react-query': {
+          singleton: true,
+          requiredVersion: '^3.39.2',
+        },
+      },
+    }),
   ],
 })
 ```
@@ -73,9 +82,9 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 
 :::
 
-3. Configurez le plugin Module Federation.  
-   Il s'agit d'un _remote_ qui doit exposer le composant `Booklist`.  
-   Inspirez-vous de l'exemple situé [ici](./intro/module-federation.md/#exemple).
+3. Configurez le plugin Module Federation en remplaçant les TODO.  
+   `booklist` est un `remote` module qui doit exposer le composant `Booklist`.  
+   Aidez-vous de l'exemple situé [ici](./intro/module-federation.md/#signification-des-param%C3%A8tres).
 
 #### Dans `apps/bookshelf` :
 
@@ -96,17 +105,19 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 ```
 
 2. Configurez le plugin Module Federation.  
-   Il s'agit du _host_. Inspirez-vous de l'exemple situé [ici](./intro/module-federation.md/#exemple).
+   Il s'agit du `host` qui va charger le `remote` module `booklist`.  
+   Aidez-vous de l'exemple situé [ici](./intro/module-federation.md/#signification-des-param%C3%A8tres).
 
 3. Modifiez l'import vers le composant `Booklist` dans le fichier `app/bookshelf/src/App.tsx`.  
+   Aidez-vous de l'exemple situé [ici](./intro/module-federation.md/#signification-des-param%C3%A8tres).  
    Typescript ne sera pas content, ajouter un `// @ts-ignore`, nous y reviendrons plus tard 😉
 
 #### Vérifier que tout fonctionne
 
 1. Jouez la commande `pnpm dev`, elle va lancer les scripts `dev` de `bookshelf` et `booklist`.
-1. Vérifiez que l'application fonctionne à l'adresse suivante : [http://localhost:3000](http://localhost:3000).  
-   Si ce n'est pas le cas, vérifier votre configuration et notamment la partie `shared` 🙂
-1. Dans vos devtools, onglet Network, regarder les fichiers JS chargés.  
+1. Vérifiez que l'application fonctionne à l'adresse suivante : [http://localhost:3000](http://localhost:3000).
+   Si ce n'est pas le cas, vérifiez votre configuration et ce [schéma](./intro/module-federation.md/#signification-des-param%C3%A8tres).
+1. Dans vos devtools, onglet Network, regardez les fichiers JS chargés.
    Le composant `Booklist` est chargé depuis le port 3001.
 
 ## Bonus 01
@@ -116,5 +127,9 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 ## Bonus 02
 
 **Charger les composants `Booklist` et `Book` en asynchrone (hint: `React.lazy`).**
+
+## Bonus 03
+
+**Récupérer les versions des librairies shared depuis le package.json.**
 
 <Solution step="01" />

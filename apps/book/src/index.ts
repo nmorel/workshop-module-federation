@@ -1,1 +1,2 @@
-export {Book} from './Book'
+import 'css/dist/index.css'
+import('./bootstrap')
