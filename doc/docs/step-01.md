@@ -89,7 +89,7 @@ Le merge est effectué à l'aide de [webpack-merge](https://github.com/survivejs
 #### Dans `apps/bookshelf` :
 
 1. Supprimez la dépendance `booklist`, vous n'en aurez plus besoin !  
-   Puis rejouez la commande `pnpm i --offline` pour appliquer la suppression.
+   Puis rejouez la commande `pnpm i` pour appliquer la suppression.
 
 ```diff title="apps/bookshelf/package.json"
    "dependencies": {
