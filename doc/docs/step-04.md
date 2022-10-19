@@ -16,10 +16,11 @@ Elle en détient les connaissances métier et elle souhaite rapatrier le composa
 
 ## Exercice
 
-**Déplacer le composant `apps/booklist/src/BooklistItem` dans `apps/book` et l'exposer via Module Federation.**
+#### Déplacer le composant `apps/booklist/src/BooklistItem` dans `apps/book` et l'exposer via Module Federation.
 
 :::info
-Depuis l'onglet Network de tes devs tools, vous remarquerez qu'un module (ici `Book`) est capable d'exposer plusieurs composants (`BooklistItem` & `Book`) sans pour autant avoir à tous les télécharger dès que le module est sollicité. Sur la page d'accueil, seul le composant `BooklistItem` est chargé et le composant `Book` utilisé en asynchrone (`React.lazy`) n'est chargé que lorsque l'on visite la page des livres pour la 1ère fois.
+Depuis l'onglet Network de vos devtools, vous remarquerez qu'un module (ici `Book`) est capable d'exposer plusieurs composants (`BooklistItem` & `Book`) sans pour autant avoir à tous les télécharger dès que le module est sollicité.  
+Sur la page d'accueil, seul le composant `BooklistItem` est chargé et le composant `Book` utilisé en asynchrone (`React.lazy`) n'est chargé que lorsque l'on visite la page des livres pour la 1ère fois.
 :::
 
 <Solution step="04" />
