@@ -34,6 +34,7 @@ Pour augmenter l'autonomie et la productivité de ces équipes, nous allons mett
 
 ```js title="packages/booklist/webpack.config.js"
 const {createConfig} = require('webpack-config')
+const {ModuleFederationPlugin} = require('webpack').container
 
 module.exports = createConfig('Booklist', {
   output: {
