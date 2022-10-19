@@ -1,21 +1,18 @@
 import * as React from 'react'
-import {useNavigate} from 'react-router-dom'
+
+import {Link} from 'react-router-dom'
 import cx from 'classnames'
 
-export function BooklistItem({book, highlighted}: {book: Bookshelf.Book; highlighted: boolean}) {
-  const nav = useNavigate()
+export function BooklistItem({book, index}: {book: Bookshelf.Book; index: number}) {
   return (
-    <button
-      type="button"
+    <Link
       className={cx('py-2 px-4 w-full group flex justify-between', {
-        'bg-slate-100': !!highlighted,
+        'bg-slate-100': index % 2 === 0,
       })}
-      onClick={() => {
-        nav({pathname: `/books/${book.slug}`, search: window.location.search})
-      }}
+      to={{pathname: `/books/${book.slug}`, search: window.location.search}}
     >
       <span className="group-hover:underline">{book.title}</span>
       <span className="italic text-slate-500">{book.year}</span>
-    </button>
+    </Link>
   )
 }
