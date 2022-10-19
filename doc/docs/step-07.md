@@ -57,7 +57,7 @@ Vous avez à disposition une fonction utilitaire `resolveRemote` dans `configs/w
 
 L'application doit se lancer en mode dev `pnpm dev` comme en mode prod `pnpm serve`.
 
-2. L'équipe choisit d'ajouter un paramètre `dev` dans l'url afin de spécifier les modules à lancer en mode dev ie. `book`, `booklist`. L'objectif est d'avoir le module `Book` ou `Booklist` ou les deux en mode dev sur l'application [http://localhost:4000](http://localhost:4000) avec tous les autres modules en mode prod.
+2. L'équipe choisit d'ajouter un paramètre `dev` dans l'url afin de spécifier les modules à lancer en mode dev. L'objectif est d'avoir le module `Book` ou `Booklist` ou les deux en mode dev sur l'application [http://localhost:4000](http://localhost:4000) avec tous les autres modules en mode prod. (*eg.* [http://localhost:4000?dev=book](http://localhost:4000?dev=book) doit charger le module `Book` en mode dev)
 
 Vous n'avez qu'à modifier `resolveRemote` pour se faire. A vous de jouer!
 
