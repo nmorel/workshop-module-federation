@@ -51,8 +51,7 @@ pnpm run -F booklist dev
 Si vous rencontrez l'erreur suivante : `QueryClientProvider.js:33 Uncaught Error: No QueryClient set, use QueryClientProvider to set one` c'est sûrement qu'il manque le `QueryProvider`. Celui-ci était fourni par le `Bookshelf` ce qui n'est plus le cas.
 :::
 
-
-Tester `Booklist` sur le port [3001](http://localhost:3001).  
+Tester `Booklist` sur le port [3001](http://localhost:3001).
 
 :::info
 Ouchh les styles ne sont pas appliqués.
@@ -66,7 +65,7 @@ import 'css/dist/index.css'
 import('./bootstrap')
 ```
 
-N'oubliez de spécifier la dépendance `css` : 
+N'oubliez pas de spécifier la dépendance `css` :
 
 ```diff title="packages/booklist/package.json"
   "dependencies": {
@@ -75,7 +74,7 @@ N'oubliez de spécifier la dépendance `css` :
 +   "css": "workspace:*",
 ```
 
-Réinstallez les dépendences via `pnpm i`
+Réinstallez les dépendances via `pnpm i`
 
 Testez à nouveau l'application `Booklist` en lançant la commande :
 
@@ -101,14 +100,18 @@ https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-
 L'équipe `Book` est jalouse! Elle est encore obligée de lancer toute l'application pour travailler sur son périmètre. Aidez les à lancer leur application en standalone.
 
 :::info
-Vous pourrez configurer le router pour aller chercher un livre en fonction du slug de l'url :  
+Vous pourrez configurer le router pour aller chercher un livre en fonction du slug de l'url :
+
 ```jsx
 <Route path="/books/:slug" element={<Book />} />
 ```
-Vous pourrez charger un livre par défaut s'il y en aucun de spécifier avec :  
+
+Vous pourrez charger un livre par défaut s'il y en aucun de spécifier avec :
+
 ```jsx
 <MemoryRouter initialEntries={[`/books/${slug}`]}>
 ```
+
 :::
 
 <Solution step="02" />

@@ -12,15 +12,15 @@ import Solution from './partials/\_solution.mdx';
 ## Description
 
 L'équipe `Booklist` a bien bossé et a crée un super composant de liste (scroll infini, virtualisation, 120+ fps, animation d'entrée/sortie, la totale !).  
-Mais maintenant la compilation avec babel montre ses limites et prend beaucoup de temps.
+Mais maintenant la compilation avec `babel` montre ses limites et prend beaucoup de temps.
 
 ## Exercice
 
-**Utiliser un autre compilateur (esbuild ou swc) sur le module `Booklist`.**
+#### Utiliser un autre compilateur ([esbuild](https://github.com/privatenumber/esbuild-loader), [swc](https://github.com/swc-project/swc-loader)) sur le module `Booklist`.
 
-### Pour `esbuild`
+#### Pour [esbuild](https://github.com/privatenumber/esbuild-loader)
 
-1. Ajouter la nouvelle dépendance.
+1. Ajoutez les dépendances nécessaires.
 
 ```diff title="apps/booklist/package.json"
    "devDependencies": {
@@ -30,18 +30,11 @@ Mais maintenant la compilation avec babel montre ses limites et prend beaucoup d
      "eslint": "8.25.0",
      "tsconfig": "workspace:*",
      "typescript": "^4.8.4",
-     "webpack": "^5.74.0",
-     "webpack-cli": "^4.10.0",
-     "webpack-config": "workspace:*",
-     "webpack-dev-server": "^4.11.1"
-   }
 ```
 
-2. Surcharger la règle par défaut pour les fichiers js/ts.
+2. Remplacer le loader `babel` par le loader `esbuild`.
 
 ```diff title="apps/booklist/webpack.config.js"
-   devServer: {
-     port: 3001,
    },
 +  module: {
 +    rules: [
@@ -59,13 +52,11 @@ Mais maintenant la compilation avec babel montre ses limites et prend beaucoup d
 +    ],
 +  },
    plugins: [
-     new ModuleFederationPlugin({
-       name: 'booklist',
 ```
 
-### Pour `swc`
+#### Pour [swc](https://github.com/swc-project/swc-loader)
 
-1. Ajouter la nouvelle dépendance.
+1. Ajoutez les dépendances nécessaires.
 
 ```diff title="apps/booklist/package.json"
    "devDependencies": {
@@ -75,19 +66,11 @@ Mais maintenant la compilation avec babel montre ses limites et prend beaucoup d
      "eslint": "8.25.0",
 +    "swc-loader": "^0.2.3",
      "tsconfig": "workspace:*",
-     "typescript": "^4.8.4",
-     "webpack": "^5.74.0",
-     "webpack-cli": "^4.10.0",
-     "webpack-config": "workspace:*",
-     "webpack-dev-server": "^4.11.1"
-   }
 ```
 
-2. Surcharger la règle par défaut pour les fichiers js/ts.
+2. Remplacer le loader `babel` par le loader `swc`.
 
 ```diff title="apps/booklist/webpack.config.js"
-   devServer: {
-     port: 3001,
    },
 +  module: {
 +    rules: [
@@ -101,14 +84,17 @@ Mais maintenant la compilation avec babel montre ses limites et prend beaucoup d
 +    ],
 +  },
    plugins: [
-     new ModuleFederationPlugin({
-       name: 'booklist',
+```
+
+#### Vérifier que le nouveau compilateur fonctionne
+
+```bash
+pnpm i
+pnpm serve
 ```
 
 ## Bonus
 
-**Utiliser un autre compilateur (esbuild ou swc) sur le module `Book`.**
-
-La squad `Book` est de nouveau jalouse, changer également son compilateur.
+#### Utiliser un autre compilateur sur le module `Book`.
 
 <Solution step="08" />
